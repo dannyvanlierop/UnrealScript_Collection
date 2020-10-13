@@ -1,0 +1,113 @@
+=============================================================
+Game            : Unreal Tournament 3
+Mod Name        : MapMixer
+Release Version : 3.03
+Release Date    : 17 May 2014
+Author          : Mathew Wilson [sinx]
+Email           : mapmixer@gmail.com
+Website         : www.moddb.com/mods/sinx
+=============================================================
+
+Introduction
+-------------------------------------------------------------
+
+Thankyou for downloading this minor update to the orginal full release of MapMixer v3 for UT3.  
+
+I hope you get as much enjoyment out of this project as I did in creating it.
+
+Thanks to all those that hung in there over this long period of development and testing.
+
+See instructions below for installation.
+
+Documentation can be found online at http://mapmixer.oceaniaut.com
+
+
+What is MapMixer?
+-------------------------------------------------------------
+
+MapMixer is a modification for the game Unreal Tournament 3 (a game by Epic Games).
+
+It's designed to give you greater control over the way you launch and manage your game session in UT3. At its core it works as a Mutator that hooks into the game, providing its unique management operations, however, it does much more.  It replaces the UT3 Main Menu and provides direct links to the MapMixer Menus as well as the standard Settings Menus.  MapMixer has been specifically designed from the ground up for both standalone and server environments.
+
+The core philosophy of MapMixer is that each match you play in a game session should not be confined by one set of parameters.  In other words, each match in a game session should be allowed its own individual settings, such as Game Type, Map, Rules, Mutators, Player Counts and Bots.
+
+MapMixer provides two methods to launch a game session.  The Quick Session allows you to get into the action quickly, whereas the Advanced Session gives you much greater depth in terms of customisation and randomisation.  For example, in the Advanced Session, you may like to make each match a little unpredictable by randomising the setup of each match.  Perhaps you’d like the Goal Score for Deathmatch to be a random value between 30 and 50, or you’d like a 5% chance that the Big Head Mutator is enabled.
+
+In an Advanced Session, maps can have their own individual default options, either globally or for a specific Gametype.  For example, you may like a particular Map to always appear with a certain Mutator or perhaps you’d like to alter the recommended Player Counts for a specific Map across different Gametypes.
+
+MapMixer allows you to customise common settings and easily switch between configurations.  With the Advanced Session Menu, you can create Lists of Settings for Rules and Mutators etc.  Use the Map List Editor to create a single list of maps combined from various gametypes, individually customising them, or alternatively let MapMixer create your Session Map List by telling it what Map Sources to use and how to select from them.
+
+MapMixer also contains its own independent Faction Management system where you can easily create and manage your own Factions, all in a graphical user interface, with the ability directly customise the look and attributes of each character, or create your own.
+
+Each player in a MapMixer hosted session has access to an in-game Client Menu, that lets them individualise parts of their in-game experience, per user login.
+
+Great care has been taken to support any possible gametype in a generic manner, where no dependancies are created on additonal downloadable content.  To support a gametype, all you need do is modify a configuration file, and MapMixer comes pre-configured for use with a number of community gametypes.
+
+MapMixer keeps all its settings completely separate from the game and will not overwrite or harm any original setting.
+
+
+How to Install MapMixer
+-------------------------------------------------------------
+
+** If you have any previous version of MapMixer installed (including any beta version) then you are strongly advised to backup all your old MapMixer Config ini files.  Then remove them from the Config folder, however there is no need to remove any file beginning with "UTMapMixer_Lists...".
+
+** You may continue to use your original UTMapMixer_MapDatabase.ini file, otherwise replace it with my personal version, which is included.
+
+
+Installation involves the following *TWO* steps:
+
+1. Copy the contents of the provided "UTGame" Folder into your "Documents\My Games\Unreal Tournament 3" folder.
+   The final path for the MapMixer files should be: "...\My Games\Unreal Tournament 3\UTGame\Published\CookedPC\MapMixer"
+
+2. Open your UTEngine.ini config file in a text editor, and make the following *single* change:
+
+   Locate the section "[URL]", which is usually the first section in the file.
+   Locate the following line in this section, which should appear as:
+   
+      LocalMap=UTFrontEnd.ut3
+   
+   and change it to:
+   
+      LocalMap=UTFrontEnd_MapMixer.ut3
+
+   This will replace the standard UT3 Main Menu with MapMixer's own.  So if you need to revert back to the original menu, then reverse the procedure.
+   
+   Alternatively you could copy and paste the orginal line in the ini file and just prefix the old one with a semi-colon for easy reversion.  For example:
+   
+      LocalMap=UTFrontEnd_MapMixer.ut3
+      ;LocalMap=UTFrontEnd.ut3
+
+
+Launch UT3 as you normally do and you should see the MapMixer Main Menu, instead of the original one.
+Launching a match is done through the "Launch" menu option.
+
+
+
+*How to Report a Bug*
+-------------------------------------------------------------
+
+To give you some guidance on what I expect from everyone who reports a bug, I have provided the following guidelines.  The vast majority of people fail to read and follow these instructions, so I beg of you to please read the following.  Most of the time I receive incomprehensible paragraphs of nonsense, so please help me out.  Thank you.
+
+Perform the following steps for each issue you are reporting, keeping them clearly separate.
+
+1. Document the exact steps you took to produce the bug, in a clear and well defined, understandable, step-by-step list (ie like this list).  Do not write jumbled paragraphs.  Remember that I need to be able to reproduce what you are doing precisely by following a list of steps.  I cannot overstress how important this is.
+
+2. Most times I will require the 'Launch.log' file that came from the game session that produced the bug.  So immediately quit the game and place the Launch.log file in a safe place to send.
+
+3. Where possible and appropriate, I will need a screenshot as well.  The most reliable way to do this is with the console command 'shot'.  Images are stored in: "...\My Games\Unreal Tournament 3\UTGame\ScreenShots"
+
+4. If you have an issue with some particular community content then please provide a site link, in case I don't have it installed.  This includes gamestypes, maps, mutators.
+
+I can be contacted at mapmixer@gmail.com
+
+
+Have fun!
+
+Feedback is welcome and requested! :>
+
+Mathew Wilson (aka sinx)
+mapmixer@gmail.com
+www.moddb.com/mods/sinx
+
+-------------------------------------------------------------
+End

@@ -1,0 +1,52 @@
+================================================================================
+MapMixer 3.xx Changelog
+================================================================================
+
+3.03 17 May 2014
+
+...four years later...
+
+Two minor version increases, which means a few bug fixes.  What were the changes?  Why wasn't this released earlier? These are indeed good questions, and as we all learn in life, some questions don't have answers; or perhaps we already know the answers and our questions are simply ways of re-inforcing the knowledge we already have?  One should let the question burn itself out.  The process of thought interferes with the natural operation of the body and the world.
+
+Actually, it seems I can't find the changelog I kept.  All I can remember is that there were some behind the scenes fixes to the Advanced Session menu and other things.  For some reason that is unknown to me, I never released the fixed version, so I've recompiled it all today and I'm making it available.  The announcement of UT 2014 jogged my memory.
+
+Will I get involved in the new UT?  It's early days for the new game and we all don't know much about it, so I can't say anything at this stage.  Life is a lot different now but one can never tell what the future holds - or indeed the past.
+
+--------------------------------------------------------------------------------
+
+3.01 Final - 17th April 2010
+
+No further changes made since the last beta release.  This is just a repackage and final release version for 3.01 to coincide with the mysterious unannounced departure of the mapmixer website.
+
+It goes like this: I had a gut feeling that things were not all that well with my host site (oceaniaut.com), so I made a backup of the site - a month later it vanished without word or warning.  I knew it had gone down just like everyone else - one day it was not there - with no further communication from the host site.  Luckily I acted on my gut feeling and had recent backups.
+
+A while ago I messed around with setting up a hosting on moddb for mapmixer (http://www.moddb.com/mods/sinx), so I've now reverted to that as the host site for mapmixer.  They've got some great facilities there but still it's not as nice as having total control over my own site.  In any case I've not had the inclination for doing any more work on mapmixer in recent months, so moddb may indeed be the resting place for mapmixer.
+
+I had some great ideas for further work on mapmixer, however life, as always is ever changing and full of seasons, so who knows what the future for mapmixer is - or indeed Unreal Tournament.
+
+I still want to hear from people if they have any further comments, or just wanna chat.  So I'm not ditching the project - just think of it as an extended rest :)
+
+All the best to everyone who's been there for me and given their support for this massive one-man project.
+
+Mat [sinx]
+
+--------------------------------------------------------------------------------
+
+3.01 Beta 1 - 26th January 2010
+
+
+o Advanced Session Menu: Custom Gametype UI, was not selecting a pre-saved Map List Name source.
+
+o Advanced Session Menu: Internally re-enabled Team Biasing when using Static Player Counts.
+
+o Custom Gametypes that used a Map List as a source of maps were not working correctly when auto-generating a map list and the resultant source list was appearing empty when being initialised.
+
+o Fixed Session Map List not clearing sometimes when switching between Advanced and Quick Session modes of play.
+
+o Fixed a stupid mix-up with end detection of clientside session maplist replication and version management optimisation. :S
+
+
+================================================================================
+================================================================================
+
+

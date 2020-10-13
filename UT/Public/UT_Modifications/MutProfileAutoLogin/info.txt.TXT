@@ -1,0 +1,21 @@
+Name: ProfileAutoLogin (mutator)
+Version: v0.3 beta
+Compatibility: UT3 v1.1 (build 3521)
+Description: When using the command-line to jump directly into a map, the front-end menus and profile login are bypassed. Until there's a patch to fix the -login and -password switches, this mutator provides profile auto-login via command-line vars instead.
+
+Although this mutator appears in the Mutators list, it should only be used from the command-line (i.e. in your shortcut or batch file to run the game, not the in-game console).
+
+Typical command-line usage:
+You just need to specify this mutator and the profilename and profilepassword vars...
+
+UT3.exe <mapname>?mutator=MutProfileAutoLogin.MutProfileAutoLogin[,<other mutators>]?ProfileName=N00blet?ProfilePassword=pwnt[?<other options>...]
+
+To be explictly redundant, this will load the <mapname> map and login the 'N00blet' online profile, using the 'pwnt' password.
+
+Comments: There are some hidden options that preserve the behavior of AutoLogin and LocalLogin, but you would usually just NOT USE THE MUTATOR if that's what you wanted. Also, I may add a "Mutate ProfileLogin <name> <password>" for the in-game console, if there's a need.
+
+This is my first released UT3 mod, and my first mod ever released on these forums, so feedback is appreciated!
+
+Credits: I credit my laziness in not wanting to go through the login menus each iteration of testing (and my willingness to put in extra effort to support my own laziness) 
+Download: http://www.bop-mod.com/download/MutProfileAutoLogin.rar
+Extract to your My Documents\My Games\Unreal Tournament 3\UTGame folder, and the ini/u files should fall into place.
