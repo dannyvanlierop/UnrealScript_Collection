@@ -26,7 +26,7 @@
 *.lib
 
 # Executables
-#*.exe
+*.exe
 *.out
 *.app
 *.ipa
@@ -76,5 +76,5 @@ DerivedDataCache/*
 # Private folders
 */Private/*
 
-# Big files
-git lfs track "*.zip"
+# Compressed
+*.zip
