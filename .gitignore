@@ -75,3 +75,6 @@ DerivedDataCache/*
 
 # Private folders
 */Private/*
+
+# Big files
+git lfs track "*.zip"
