@@ -1,2 +1,5 @@
-# Hide all exe (demo) files
+# Hide big files
 *.demo
+
+#END
+!.gitignore

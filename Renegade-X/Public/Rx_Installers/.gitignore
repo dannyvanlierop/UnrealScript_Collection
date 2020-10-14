@@ -1,2 +1,5 @@
-# Hide all exe (big) files
+# Hide big files
 *.exe
+
+#END
+!.gitignore
