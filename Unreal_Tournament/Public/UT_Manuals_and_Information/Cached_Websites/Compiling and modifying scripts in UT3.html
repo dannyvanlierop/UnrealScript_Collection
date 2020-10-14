@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<!-- saved from url=(0076)https://alphaeridani.wordpress.com/2012/05/06/editing-and-compiling-uscript/ -->
+<html lang="en"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Modding for UT3 – Editing and Compiling with uscript: An introduction | Alphaeridani Level Design</title>
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="https://alphaeridani.wordpress.com/xmlrpc.php">
+<link rel="dns-prefetch" href="https://s2.wp.com/">
+<link rel="dns-prefetch" href="https://s0.wp.com/">
+<link rel="dns-prefetch" href="https://s1.wp.com/">
+<link rel="alternate" type="application/rss+xml" title="Alphaeridani Level Design » Feed" href="https://alphaeridani.wordpress.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="Alphaeridani Level Design » Comments Feed" href="https://alphaeridani.wordpress.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Alphaeridani Level Design » Modding for UT3 – Editing and Compiling with uscript: An introduction Comments Feed" href="https://alphaeridani.wordpress.com/2012/05/06/editing-and-compiling-uscript/feed/">
+	<script defer="" src="./Modding for UT3 – Editing and Compiling with uscript_ An introduction _ Alphaeridani Level Design_files/beacon.js.download"></script><script type="text/javascript">
+		/* <![CDATA[ */
+		function addLoadEvent(func) {
+			var oldonload = window.onload;
+			if (typeof window.onload != 'function') {
+				window.onload = func;
+			} else {
+				window.onload = function () {
+					oldonload();
+					func();
+				}
+			}
+		}
+		/* ]]> */
+	</script>
+			<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s0.wp.com\/wp-content\/mu-plugins\/wpcom-smileys\/twemoji\/2\/72x72\/","ext":".png","svgUrl":"https:\/\/s0.wp.com\/wp-content\/mu-plugins\/wpcom-smileys\/twemoji\/2\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/s1.wp.com\/wp-includes\/js\/wp-emoji-release.min.js?m=1488818651h&ver=4.7.4"}};
+			!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),!(j.toDataURL().length<3e3)&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,65039,8205,55356,57096),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,55356,57096),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55357,56425,55356,57341,8205,55357,56507),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55357,56425,55356,57341,55357,56507),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./Modding for UT3 – Editing and Compiling with uscript_ An introduction _ Alphaeridani Level Design_files/wp-emoji-release.min.js.download" type="text/javascript" defer=""></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="all-css-0-1" href="./Modding for UT3 – Editing and Compiling with uscript_ An introduction _ Alphaeridani Level Design_files/saved_resource" type="text/css" media="all">
+<link rel="stylesheet" id="print-css-1-1" href="./Modding for UT3 – Editing and Compiling with uscript_ An introduction _ Alphaeridani Level Design_files/global-print.css" type="text/css" media="print">
+<link rel="stylesheet" id="all-css-2-1" href="./Modding for UT3 – Editing and Compiling with uscript_ An introduction _ Alphaeridani Level Design_files/saved_resource(1)" type="text/css" media="all">
+<script type="text/javascript" src="./Modding for UT3 – Editing and Compiling with uscript_ An introduction _ Alphaeridani Level Design_files/saved_resource(2)"></script><style>@media print {#ghostery-purple-box {display:none !important}}</style>
+<link rel="stylesheet" id="all-css-0-2" href="./Modding for UT3 – Editing and Compiling with uscript_ An introduction _ Alphaeridani Level Design_files/style.css" type="text/css" media="all">
+<!--[if lt IE 8]>
+<link rel='stylesheet' id='highlander-comments-ie7-css'  href='https://s1.wp.com/wp-content/mu-plugins/highlander-comments/style-ie7.css?m=1351637563h&#038;ver=20110606' type='text/css' media='all' />
+<![endif]-->
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://alphaeridani.wordpress.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://s1.wp.com/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="Future of Gaming" href="https://alphaeridani.wordpress.com/2012/03/27/future-of-gaming/">
+<link rel="next" title="Model conversion to .ase using Blender" href="https://alphaeridani.wordpress.com/2014/01/07/model-conversion-to-ase-using-blender/">
+<meta name="generator" content="WordPress.com">
+<link rel="canonical" href="https://alphaeridani.wordpress.com/2012/05/06/editing-and-compiling-uscript/">
+<link rel="shortlink" href="http://wp.me/p1caY0-2M">
+<link rel="alternate" type="application/json+oembed" href="https://public-api.wordpress.com/oembed/1.0/?format=json&amp;url=https%3A%2F%2Falphaeridani.wordpress.com%2F2012%2F05%2F06%2Fediting-and-compiling-uscript%2F&amp;for=wpcom-auto-discovery"><link rel="alternate" type="application/xml+oembed" href="https://public-api.wordpress.com/oembed/1.0/?format=xml&amp;url=https%3A%2F%2Falphaeridani.wordpress.com%2F2012%2F05%2F06%2Fediting-and-compiling-uscript%2F&amp;for=wpcom-auto-discovery">
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Modding for UT3 – Editing and Compiling with uscript: An introduction">
+<meta property="og:url" content="https://alphaeridani.wordpress.com/2012/05/06/editing-and-compiling-uscript/">
+<meta property="og:description" content="Compiling and modifying scripts in UT3 These instructions show how to mod various component of Unreal Tournament III or UE3 game through the use of Unreal’s scripting language uscript. Some s…">
+<meta property="article:published_time" content="2012-05-06T12:44:32+00:00">
+<meta property="article:modified_time" content="2014-01-09T23:26:39+00:00">
+<meta property="og:site_name" content="Alphaeridani Level Design">
+<meta property="og:image" content="https://s0.wp.com/i/blank.jpg">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:site" content="@wordpressdotcom">
+<meta name="twitter:card" content="summary">
+<meta property="fb:app_id" content="249643311490">
+<meta property="article:publisher" content="https://www.facebook.com/WordPresscom">
+<link rel="shortcut icon" type="image/x-icon" href="https://s2.wp.com/i/favicon.ico" sizes="16x16 24x24 32x32 48x48">
+<link rel="icon" type="image/x-icon" href="https://s2.wp.com/i/favicon.ico" sizes="16x16 24x24 32x32 48x48">
+<link rel="apple-touch-icon-precomposed" href="https://s0.wp.com/i/webclip.png">
+<link rel="openid.server" href="https://alphaeridani.wordpress.com/?openidserver=1">
+<link rel="openid.delegate" href="https://alphaeridani.wordpress.com/">
+<link rel="search" type="application/opensearchdescription+xml" href="https://alphaeridani.wordpress.com/osd.xml" title="Alphaeridani Level Design">
+<link rel="search" type="application/opensearchdescription+xml" href="https://s1.wp.com/opensearch.xml" title="WordPress.com">
+		<style type="text/css">
+			.recentcomments a {
+				display: inline !important;
+				padding: 0 !important;
+				margin: 0 !important;
+			}
+
+			table.recentcommentsavatartop img.avatar, table.recentcommentsavatarend img.avatar {
+				border: 0px;
+				margin: 0;
+			}
+
+			table.recentcommentsavatartop a, table.recentcommentsavatarend a {
+				border: 0px !important;
+				background-color: transparent !important;
+			}
+
+			td.recentcommentsavatarend, td.recentcommentsavatartop {
+				padding: 0px 0px 1px 0px;
+				margin: 0px;
+			}
+
+			td.recentcommentstextend {
+				border: none !important;
+				padding: 0px 0px 2px 10px;
+			}
+
+			.rtl td.recentcommentstextend {
+				padding: 0px 10px 2px 0px;
+			}
+
+			td.recentcommentstexttop {
+				border: none;
+				padding: 0px 0px 0px 10px;
+			}
+
+			.rtl td.recentcommentstexttop {
+				padding: 0px 10px 0px 0px;
+			}
+		</style>
+		<meta name="application-name" content="Alphaeridani Level Design"><meta name="msapplication-window" content="width=device-width;height=device-height"><meta name="msapplication-tooltip" content="A UT3 Mapping Blog"><meta name="msapplication-task" content="name=Subscribe;action-uri=https://alphaeridani.wordpress.com/feed/;icon-uri=https://s2.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=Sign up for a free blog;action-uri=http://wordpress.com/signup/;icon-uri=https://s2.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=WordPress.com Support;action-uri=http://support.wordpress.com/;icon-uri=https://s2.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=WordPress.com Forums;action-uri=http://forums.wordpress.com/;icon-uri=https://s2.wp.com/i/favicon.ico"><meta name="title" content="Modding for UT3 – Editing and Compiling with uscript: An introduction | Alphaeridani Level Design on WordPress.com">
+<meta name="description" content="Compiling and modifying scripts in UT3 These instructions show how to mod various component of Unreal Tournament III or UE3 game through the use of Unreal&#39;s scripting language uscript. Some simple and easy targets for this sort of operation are: Increasing the damage of a weapon Changing the amount of ammo and or health count…">
+ 		<script type="text/javascript">
+		var _ipw_custom = {
+				wordAds: '0',
+				adSafe: '0',
+				domain: 'alphaeridani.wordpress.com',
+				pageURL: 'https://alphaeridani.wordpress.com/2012/05/06/editing-and-compiling-uscript/'
+			};
+		</script>
+		<script type="text/javascript" src="https://c.amazon-adsystem.com/aax2/amzn_ads.js"></script>
+ 		<script type="text/javascript" src="https://s.pubmine.com/head.js"></script>
+		<script type="text/javascript" src="./Modding for UT3 – Editing and Compiling with uscript_ An introduction _ Alphaeridani Level Design_files/publishertag.js.download"></script><link rel="amphtml" href="https://alphaeridani.wordpress.com/2012/05/06/editing-and-compiling-uscript/amp/"><style type="text/css" id="syntaxhighlighteranchor"></style>
+<script type="text/javascript">
+	window.google_analytics_uacct = "UA-52447-2";
+</script>
+
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-52447-2']);
+	_gaq.push(['_setDomainName', 'wordpress.com']);
+	_gaq.push(['_initData']);
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+	})();
+</script><script type="text/javascript" async="" src="./Modding for UT3 – Editing and Compiling with uscript_ An introduction _ Alphaeridani Level Design_files/ga.js.download"></script>
+</head>
+
+<body class="post-template-default single single-post postid-172 single-format-standard mp6 customizer-styles-applied content-sidebar highlander-enabled highlander-light">
+<div id="page">
+
+	<div id="container">
+
+		<ul class="skip">
+			<li><a href="https://alphaeridani.wordpress.com/2012/05/06/editing-and-compiling-uscript/#access">Skip to navigation</a></li>
+			<li><a href="https://alphaeridani.wordpress.com/2012/05/06/editing-and-compiling-uscript/#main">Skip to main content</a></li>
+			<li><a href="https://alphaeridani.wordpress.com/2012/05/06/editing-and-compiling-uscript/#sidebar">Skip to primary sidebar</a></li>
+			<li><a href="https://alphaeridani.wordpress.com/2012/05/06/editing-and-compiling-uscript/#sidebar2">Skip to secondary sidebar</a></li>
+			<li><a href="https://alphaeridani.wordpress.com/2012/05/06/editing-and-compiling-uscript/#footer">Skip to footer</a></li>
+		</ul>
+
+		<div id="header">
+			<div id="branding" class="clear-block">
+				<a class="home-link" href="https://alphaeridani.wordpress.com/" title="Alphaeridani Level Design" rel="home">
+					<h1 id="logo">Alphaeridani Level Design</h1>
+					<h2 id="site-description">A UT3 Mapping Blog</h2>
+				</a>
+			</div><!-- #branding-->
+
+			<div id="access" class="clear-block" role="navigation">
+				<false class="menu"><ul>
+<li><a href="https://alphaeridani.wordpress.com/">Home</a></li><li class="page_item page-item-2"><a href="https://alphaeridani.wordpress.com/about/">About</a></li>
+</ul></false>
+
+				<div class="social-icons">
+
+					
+					
+					
+					
+					
+				</div><!-- .social-icons -->
+
+			</div><!-- #access -->
+
+							
+			</div><!-- #header-->
+
+			<div id="main">
+
+ 			<div id="content-container">
+	 			<div id="content">
+					
+						<div class="post-navigation nav-above">
+							<div class="nav-previous">
+								<a href="https://alphaeridani.wordpress.com/2012/03/27/future-of-gaming/" rel="prev">← Future of Gaming</a>							</div>
+							<div class="nav-next">
+								<a href="https://alphaeridani.wordpress.com/2014/01/07/model-conversion-to-ase-using-blender/" rel="next">Model conversion to .ase using&nbsp;Blender →</a>							</div>
+						</div><!-- .post-navigation -->
+
+						<div class="post-wrapper clear-block post-172 post type-post status-publish format-standard hentry category-tutorials tag-default-properties tag-inheritance-structure tag-scripting-language tag-unreal-tournament-3">
+
+	
+			<h1 class="single-title">Modding for UT3 – Editing and Compiling with uscript: An&nbsp;introduction</h1>	
+	<div class="post-date">
+		<p class="day"><a href="https://alphaeridani.wordpress.com/2012/05/06/editing-and-compiling-uscript/" rel="bookmark" title="Permanent Link to Modding for UT3 – Editing and Compiling with uscript: An introduction">May 6</a></p>
+	</div><!-- .post-date -->
+
+	<div class="post-info clear-block">
+		<p class="author alignleft">Posted by <a href="https://alphaeridani.wordpress.com/author/marsjobranee/" title="Posts by alphaeridani" rel="author">alphaeridani</a></p>
+	</div><!-- .post-info clear-block" -->
+
+	<div class="entry clear-block">
+		<h1>Compiling and modifying scripts in UT3</h1>
+<p>These instructions show how to mod various component of Unreal Tournament III or UE3 game through the use of Unreal’s scripting language uscript. Some simple and easy targets for this sort of operation are:</p>
+<ul>
+<li><strong>Increasing the damage of a weapon</strong></li>
+</ul>
+<ul>
+<li><strong>Changing the amount of ammo and or health count of pickups</strong></li>
+</ul>
+<ul>
+<li><strong>Increasing or decreasing the spawn times of pickups, e.g. for synchronisation purposes or making some items more scarce</strong></li>
+</ul>
+<ul>
+<li><strong>Replacing the model used in game e.g. customising a health / ammo / power-up (udamage/Beserk/Invis) model</strong></li>
+</ul>
+<p>And many more functions, only limited by your imagination and perseverance.</p>
+<p>These operations are relatively simple due to the inheritance structure of uscript. Which mean many new users can jump in and get their feet wet, tweaking default properties with little formal understanding of the language or its syntax 🙂</p>
+<p>To explore the items available to mod I recommend getting a copy of the latest UT3 <a href="http://udn.epicgames.com/Files/UT3/Mods/UT3ScriptSource_1.5.rar" target="_blank">ScriptSource</a> on UDN and look through it for scripts that you wish to control.</p>
+<p>The property I will demonstrate modding is delaying the spawn time of the Super Health. This mod was used in the level DM-Richter. This was achieved by overriding the default properties of a class.</p>
+<h2><span style="text-decoration:underline;">How to Override Default Properties of a class</span></h2>
+<p>Inside the ScriptSource, sift through the folders to:</p>
+<p><strong>UT3ScriptSource_1.5\Development\Src\UTGameContent\Classes</strong></p>
+<p>Find the file: <strong>UTPickupFactory_SuperHealth.uc</strong></p>
+<p>To get started modding this script go to:</p>
+<p><strong>C:\Users\”UserName”\Documents\My Games\Unreal Tournament 3\UTGame\Src\</strong></p>
+<p>Start by adding a folder where your work will be held. In my example I will label the folder “<strong>UTPickupFactory_SuperHealth_Delay</strong>” as the starting point. (It is customary to label the top level folder as the name of the script to be edited for ease of searching). Beneath that, add a folder named “<strong>Classes”</strong>. Then create a text file with a .uc extention in this location. By example, <strong>UTPickupFactory_SuperHealth_Delay.uc</strong>.</p>
+<p>i.e. create:</p>
+<p><strong>C:\Users\UserName\Documents\My Games\Unreal Tournament 3\UTGame\Src\UTPickupFactory_SuperHealth_Delay\Classes\UTPickupFactory_SuperHealth_Delay.uc.</strong></p>
+<p>Be sure to save the txt file in ANSI format.</p>
+<p>In this file <strong>UTPickupFactory_SuperHealth.uc</strong> I would start by adding the default properties of the .uc file I am seeking to mod taken from the Script Source.&nbsp; Next I would hone in on the the code one wishes to change.</p>
+<p>The folder and file structure should now look like this:</p>
+<p><strong>C:\Users\UserName\Documents\My Games\Unreal Tournament 3\UTGame\Src\UTPickupFactory_SuperHealth_Delay\Classes\UTPickupFactory_SuperHealth_Delay.uc</strong></p>
+<p>The entire UTPickupFactory_SuperHealth.uc file: From here I will review the properties I wish to edit.</p>
+<div style="height:300px;width:700px;font:12px/16px Courier New, Garamond, Serif;overflow:scroll;position:relative;left:10px;background:grey;">
+<pre>/**
+* Copyright 1998-2007 Epic Games, Inc. All Rights Reserved.
+*/
+class UTPickupFactory_SuperHealth extends UTHealthPickupFactory;var ParticleSystemComponent Crackle; // the crackling lightning effect that surrounds the keg on spawnsimulated function RespawnEffect()
+{
+super.RespawnEffect();
+Crackle.SetActive(true);
+}simulated function SetPickupHidden()
+{
+Glow.SetFloatParameter('LightStrength',0.0f);
+Super.SetPickupHidden();
+}simulated function SetPickupVisible()
+{
+Super.SetPickupVisible();
+Glow.SetFloatParameter('LightStrength', 1.0f);
+}defaultproperties
+{
+bSuperHeal=true
+bPredictRespawns=true
+bIsSuperItem=true
+RespawnTime=60.000000
+MaxDesireability=2.000000
+HealingAmount=100
+PickupSound=SoundCue'A_Pickups.Health.Cue.A_Pickups_Health_Super_Cue'Begin Object Name=BaseMeshComp
+StaticMesh=StaticMesh'Pickups.Health_Large.Mesh.S_Pickups_Base_Health_Large'
+Translation=(Z=-44)
+Rotation=(Yaw=16384)
+Scale=0.8
+End Object
+Begin Object Name=HealthPickUpMesh
+StaticMesh=StaticMesh'Pickups.Health_Large.Mesh.S_Pickups_Health_Large_Keg'
+CullDistance=7000
+Materials(0)=Material'Pickups.Health_Large.Materials.M_Pickups_Health_Large_Keg'
+End Object
+Begin Object Name=ParticleGlow
+Template=ParticleSystem'Pickups.Health_Large.Effects.P_Pickups_Base_Health_Glow'
+Translation=(Z=-50.0)
+SecondsBeforeInactive=1.0f
+End Object
+Components.Add(ParticleGlow)
+Glow=ParticleGlow
+Begin Object Name=ParticleCrackle
+Template=ParticleSystem'Pickups.Health_Large.Effects.P_Pickups_Base_Health_Spawn'
+Translation=(Z=-50.0)
+SecondsBeforeInactive=1.0f
+End Object
+Components.Add(ParticleCrackle)
+Crackle=ParticleCrackle
+YawRotationRate=16384
+bRotatingPickup=true
+bHasLocationSpeech=true
+LocationSpeech(0)=SoundNodeWave'A_Character_IGMale.BotStatus.A_BotStatus_IGMale_HeadingForTheSuperHealth'
+LocationSpeech(1)=SoundNodeWave'A_Character_Jester.BotStatus.A_BotStatus_Jester_HeadingForTheSuperHealth'
+LocationSpeech(2)=SoundNodeWave'A_Character_Othello.BotStatus.A_BotStatus_Othello_HeadingForTheSuperHealth'
+}</pre>
+</div>
+<p>In this case I am changing the RespawnTime from: RespawnTime=60.0 to RespawnTime=90.0 (the variable is in seconds). This will enable it to spawn at the same time as the weapon powerup, creating race conditions for these high value items.</p>
+<p>To do this find <strong>UTPickupFactory_SuperHealth</strong> and create your own custom class using the syntax:</p>
+<pre style="padding-left:10px;">class "name of .uc file you made" extends "name of class your changing";
+{
+adding the variable you wish to change beneath this, 
+enclosing in curly braces
+}</pre>
+<p>So in my example I copy the Default Properties into a text file and change the property I’m after:</p>
+<p>i.e.</p>
+<div style="height:260px;width:700px;font:12px/16px Courier New, Garamond, Serif;overflow:scroll;position:relative;left:10px;background:grey;">
+<pre>class UTPickupFactory_SuperHealth_Delay extends UTPickupFactory_SuperHealth;
+defaultproperties
+{
+bSuperHeal=true
+bPredictRespawns=true
+bIsSuperItem=true
+RespawnTime=90.000000
+MaxDesireability=2.000000
+HealingAmount=100
+PickupSound=SoundCue'A_Pickups.Health.Cue.A_Pickups_Health_Super_Cue'
+}</pre>
+</div>
+<p>Before compile time go to:</p>
+<p><strong>C:\Users\UserName\Documents\My Games\Unreal Tournament 3\UTGame\Config</strong></p>
+<p>Edit: <strong>UTEditor.ini</strong></p>
+<p>In the file just below search for:<br>
+[ModPackages]<br>
+ModPackageinPath=\UtGame\Src</p>
+<p><span style="text-decoration:underline;">Add this line.</span></p>
+<p><em>ModPackages=UTPickupFactory_SuperHealth_Delay</em></p>
+<p>“<strong>UTPickupFactory_SuperHealth_Delay</strong>” Is the name of the top level folder you placed your script in. This tells the compiler where to look when compiling. Save and close this file.</p>
+<p>To compile place the <strong>make</strong> flag on a short cut to UT3.exe<br>
+ie <strong>“C:\Program Files (x86)\Unreal Tournament 3\Binaries\UT3.exe” make</strong></p>
+<p>Now run the short cut!</p>
+<p>If all goes well a console will pop up with green out put of the compilation telling if it completed successfully. If so continue. Otherwise carefully go back and check your file names, their paths and syntax are all correct and repeat.</p>
+<p>The custom health pickup will be available inside of Generic Browser Pickup Factory Tree. Go ahead and place the actor inside of game.</p>
+<p>When publishing this level place the resultant script (<strong>UTPickupFactory_SuperHealth_Delay.u</strong>) into the <strong>/Published/CookedPC/Script</strong> Folder. The new script should now be available in game.<br>
+Because of the inheritance properties of Uscipt it is easy to create new custom classes that extend (inherit) all the properties of another class. So allowing small and large changes to be made with next to no familiarity of the language, thus giving the novice a toe hold with which to explore the language.</p>
+<p>Happy modding.<br>
+<strong>References:</strong></p>
+<p><a href="http://www.3dbuzz.com/vbforum/sv_showvideo.php?v=962">http://www.3dbuzz.com/vbforum/sv_showvideo.php?v=962</a> (Override Default Properties?)</p>
+<p><a href="http://www.3dbuzz.com/vbforum/sv_showvideo.php?v=963">http://www.3dbuzz.com/vbforum/sv_showvideo.php?v=963</a> (Override Properties)</p>
+			<style type="text/css">
+			div.wpmrec2x{max-width:610px;}
+			div.wpmrec2x div.u > div{float:left;margin-right:10px;}
+			div.wpmrec2x div.u > div:nth-child(3n){margin-right:0px;}
+			</style>		<div class="wpcnt">
+			<div class="wpa wpmrec wpmrec2x">
+				<span class="wpa-about">Advertisements</span>
+				<div class="u">
+								<script type="text/javascript">
+				(function(g){if("undefined"!=typeof g.__ATA){g.__ATA.initAd({sectionId:26942, width:300, height:250});
+					g.__ATA.initAd({sectionId:114160, width:300, height:250});}})(window);
+			</script>
+				</div>
+				        <div id="crt-1386781011" style="width: 300px; height: 250px; display: none !important; visibility: hidden !important;"></div>
+        <script type="text/javascript">
+        var o = document.getElementById('crt-1386781011');
+        if ("undefined"!=typeof Criteo) {
+            var p = o.parentNode;
+            p.style.setProperty('display', 'inline-block', 'important');
+            o.style.setProperty('display', 'block', 'important');
+            Criteo.DisplayAcceptableAdIfAdblocked({zoneid:388248,containerid:"crt-1386781011",collapseContainerIfNotAdblocked:true,"callifnotadblocked": function () {var o = document.getElementById('crt-1386781011'); o.style.setProperty('display','none','important');o.style.setProperty('visbility','hidden','important'); }
+        });
+        } else {
+            o.style.setProperty('display', 'none', 'important');
+            o.style.setProperty('visibility', 'hidden', 'important');
+        }
+        </script>
+			</div>
+		</div><div id="jp-post-flair" class="sharedaddy sd-like-enabled"><div class="sharedaddy sd-block sd-like jetpack-likes-widget-wrapper jetpack-likes-widget-loaded" id="like-post-wrapper-17678432-172-59105c4bce968" data-src="//widgets.wp.com/likes/#blog_id=17678432&amp;post_id=172&amp;origin=alphaeridani.wordpress.com&amp;obj_id=17678432-172-59105c4bce968" data-name="like-post-frame-17678432-172-59105c4bce968"><h3 class="sd-title">Like this:</h3><div class="likes-widget-placeholder post-likes-widget-placeholder" style="height: 55px; display: none;"><span class="button"><span>Like</span></span> <span class="loading">Loading...</span></div><iframe class="post-likes-widget jetpack-likes-widget" name="like-post-frame-17678432-172-59105c4bce968" height="55px" width="100%" frameborder="0" src="./Modding for UT3 – Editing and Compiling with uscript_ An introduction _ Alphaeridani Level Design_files/saved_resource.html"></iframe><span class="sd-text-color"></span><a class="sd-link-color"></a></div></div>			</div><!-- .entry -->
+
+	
+	
+</div><!-- .post-wrapper -->
+						<div class="post-utility">
+							<p class="details">
+								Posted on May 6, 2012, in <a href="https://alphaeridani.wordpress.com/category/tutorials/" rel="category tag">Tutorials</a> and tagged <a href="https://alphaeridani.wordpress.com/tag/default-properties/" rel="tag">default properties</a>, <a href="https://alphaeridani.wordpress.com/tag/inheritance-structure/" rel="tag">inheritance structure</a>, <a href="https://alphaeridani.wordpress.com/tag/scripting-language/" rel="tag">scripting language</a>, <a href="https://alphaeridani.wordpress.com/tag/unreal-tournament-3/" rel="tag">unreal tournament 3</a>. Bookmark the <a href="https://alphaeridani.wordpress.com/2012/05/06/editing-and-compiling-uscript/" title="Permalink to Modding for UT3 – Editing and Compiling with uscript: An introduction" rel="bookmark">permalink</a>.								<a href="https://alphaeridani.wordpress.com/2012/05/06/editing-and-compiling-uscript/#respond">Leave a comment</a>.															</p>
+						</div><!-- .post-utility -->
+
+						<div class="post-navigation nav-below">
+							<div class="nav-previous">
+								<a href="https://alphaeridani.wordpress.com/2012/03/27/future-of-gaming/" rel="prev">← Future of Gaming</a>							</div>
+							<div class="nav-next">
+								<a href="https://alphaeridani.wordpress.com/2014/01/07/model-conversion-to-ase-using-blender/" rel="next">Model conversion to .ase using&nbsp;Blender →</a>							</div>
+						</div><!-- .post-navigation -->
+
+					
+<div id="post-extra-content" class="clear-block">
+	
+		<div id="secondary-tabs">
+		<ul class="comment-tabs">
+						<li class="leave-a-comment">
+				<h3 class="comment-tab-title">
+					<a href="https://alphaeridani.wordpress.com/2012/05/06/editing-and-compiling-uscript/#respond" title="Leave a comment"> Leave a comment</a>
+				</h3>
+			</li>
+												<li>
+				<h3 class="comment-tab-title">
+					<a href="https://alphaeridani.wordpress.com/2012/05/06/editing-and-compiling-uscript/#comments">Comments 0</a>
+				</h3>
+			</li>
+					</ul><!-- .comment-tabs -->
+	</div><!-- #secondary-tabs -->
+
+
+	
+	
+	
+		<div id="respond" class="comment-respond js">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="https://alphaeridani.wordpress.com/2012/05/06/editing-and-compiling-uscript/#respond" style="display:none;">Cancel reply</a></small></h3>		<form action="https://alphaeridani.wordpress.com/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+														
+
+
+						<input type="hidden" id="highlander_comment_nonce" name="highlander_comment_nonce" value="e2265a5d70"><input type="hidden" name="_wp_http_referer" value="/2012/05/06/editing-and-compiling-uscript/">
+<input type="hidden" name="hc_post_as" id="hc_post_as" value="guest">
+
+<div class="comment-form-field comment-textarea">
+	
+	<div id="comment-form-comment"><textarea tabindex="-1" style="position: absolute; top: -999px; left: 0px; right: auto; bottom: auto; border: 0px; padding: 0px; box-sizing: content-box; word-wrap: break-word; overflow: hidden; transition: none; height: 0px !important; min-height: 0px !important; font-family: Arial, Helvetica, Tahoma, Verdana, sans-serif; font-size: 14px; font-weight: 400; font-style: normal; letter-spacing: 0px; text-transform: none; text-decoration: none solid rgba(0, 0, 0, 0.701961); word-spacing: 0px; text-indent: 0px; line-height: normal; width: 582px;" class="autosizejs "></textarea><textarea id="comment" name="comment" title="Enter your comment here..." placeholder="Enter your comment here..." style="height: 36px; overflow: hidden; word-wrap: break-word; resize: none;"></textarea></div>
+</div>
+
+<div id="comment-form-identity" class="comment_registration" style="display: none;">
+
+	<div id="comment-form-nascar">
+		<p>Please log in using one of these methods to post your comment:</p>
+		<ul>
+			<li>
+				<a href="https://alphaeridani.wordpress.com/2012/05/06/editing-and-compiling-uscript/#comment-form-load-service:WordPress.com" id="postas-wordpress" title="WordPress.com">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a href="https://alphaeridani.wordpress.com/2012/05/06/editing-and-compiling-uscript/#comment-form-load-service:Twitter" id="postas-twitter" title="Twitter">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a href="https://alphaeridani.wordpress.com/2012/05/06/editing-and-compiling-uscript/#comment-form-load-service:Facebook" id="postas-facebook" title="Facebook">
+					<span></span>
+				</a>
+			</li>
+			<li>
+			<iframe id="googleplus-sign-in" name="googleplus-sign-in" src="./Modding for UT3 – Editing and Compiling with uscript_ An introduction _ Alphaeridani Level Design_files/saved_resource(6).html" width="24" height="24" scrolling="no" allowtransparency="true" seamless="seamless" frameborder="0"></iframe>
+			</li>
+		</ul>
+	</div>
+
+	<div id="comment-form-guest" class="comment-form-service selected" style="display: none;">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+<a href="https://gravatar.com/site/signup/" target="_blank">				<img src="./Modding for UT3 – Editing and Compiling with uscript_ An introduction _ Alphaeridani Level Design_files/ad516503a11cd5ca435acc9bb6523536" alt="Gravatar" width="25" class="no-grav">
+</a>			</div>
+
+				<div class="comment-form-fields">
+				<div class="comment-form-field comment-form-email">
+					<label for="email">Email <span class="required">(required)</span> <span class="nopublish">(Address never made public)</span></label>
+					<div class="comment-form-input"><input id="email" name="email" type="email" value=""></div>
+				</div>
+				<div class="comment-form-field comment-form-author">
+					<label for="author">Name <span class="required">(required)</span></label>
+					<div class="comment-form-input"><input id="author" name="author" type="text" value=""></div>
+				</div>
+				<div class="comment-form-field comment-form-url">
+					<label for="url">Website</label>
+					<div class="comment-form-input"><input id="url" name="url" type="url" value=""></div>
+				</div>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-wordpress" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="./Modding for UT3 – Editing and Compiling with uscript_ An introduction _ Alphaeridani Level Design_files/ad516503a11cd5ca435acc9bb6523536" alt="WordPress.com Logo" width="25" class="no-grav">
+			</div>
+
+				<div class="comment-form-fields">
+				<input type="hidden" name="wp_avatar" id="wordpress-avatar" class="comment-meta-wordpress" value="">
+				<input type="hidden" name="wp_user_id" id="wordpress-user_id" class="comment-meta-wordpress" value="">
+				<input type="hidden" name="wp_access_token" id="wordpress-access_token" class="comment-meta-wordpress" value="">
+				<p class="comment-form-posting-as pa-wordpress"><strong></strong> You are commenting using your WordPress.com account. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( &#39;wordpress&#39; );">Log&nbsp;Out</a>&nbsp;/&nbsp;<a href="https://alphaeridani.wordpress.com/2012/05/06/editing-and-compiling-uscript/#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-twitter" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="./Modding for UT3 – Editing and Compiling with uscript_ An introduction _ Alphaeridani Level Design_files/ad516503a11cd5ca435acc9bb6523536" alt="Twitter picture" width="25" class="no-grav">
+			</div>
+
+				<div class="comment-form-fields">
+				<input type="hidden" name="twitter_avatar" id="twitter-avatar" class="comment-meta-twitter" value="">
+				<input type="hidden" name="twitter_user_id" id="twitter-user_id" class="comment-meta-twitter" value="">
+				<input type="hidden" name="twitter_access_token" id="twitter-access_token" class="comment-meta-twitter" value="">
+				<p class="comment-form-posting-as pa-twitter"><strong></strong> You are commenting using your Twitter account. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( &#39;twitter&#39; );">Log&nbsp;Out</a>&nbsp;/&nbsp;<a href="https://alphaeridani.wordpress.com/2012/05/06/editing-and-compiling-uscript/#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-facebook" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="./Modding for UT3 – Editing and Compiling with uscript_ An introduction _ Alphaeridani Level Design_files/ad516503a11cd5ca435acc9bb6523536" alt="Facebook photo" width="25" class="no-grav">
+			</div>
+
+				<div class="comment-form-fields">
+				<input type="hidden" name="fb_avatar" id="facebook-avatar" class="comment-meta-facebook" value="">
+				<input type="hidden" name="fb_user_id" id="facebook-user_id" class="comment-meta-facebook" value="">
+				<input type="hidden" name="fb_access_token" id="facebook-access_token" class="comment-meta-facebook" value="">
+				<p class="comment-form-posting-as pa-facebook"><strong></strong> You are commenting using your Facebook account. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( &#39;facebook&#39; );">Log&nbsp;Out</a>&nbsp;/&nbsp;<a href="https://alphaeridani.wordpress.com/2012/05/06/editing-and-compiling-uscript/#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-googleplus" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="./Modding for UT3 – Editing and Compiling with uscript_ An introduction _ Alphaeridani Level Design_files/ad516503a11cd5ca435acc9bb6523536" alt="Google+ photo" width="25" class="no-grav">
+			</div>
+
+				<div class="comment-form-fields">
+				<input type="hidden" name="googleplus_avatar" id="googleplus-avatar" class="comment-meta-googleplus" value="">
+				<input type="hidden" name="googleplus_user_id" id="googleplus-user_id" class="comment-meta-googleplus" value="">
+				<input type="hidden" name="googleplus_access_token" id="googleplus-access_token" class="comment-meta-googleplus" value="">
+				<p class="comment-form-posting-as pa-googleplus"><strong></strong> You are commenting using your Google+ account. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( &#39;googleplus&#39; );">Log&nbsp;Out</a>&nbsp;/&nbsp;<a href="https://alphaeridani.wordpress.com/2012/05/06/editing-and-compiling-uscript/#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+
+	<div id="comment-form-load-service" class="comment-form-service">
+		<div class="comment-form-posting-as-cancel"><a href="javascript:HighlanderComments.cancelExternalWindow();">Cancel</a></div>
+		<p>Connecting to %s</p>
+	</div>
+
+</div>
+
+<script type="text/javascript">
+var highlander_expando_javascript = function(){
+	var input = document.createElement( 'input' ),
+	    comment = jQuery( '#comment' );
+
+	if ( 'placeholder' in input ) {
+		comment.attr( 'placeholder', jQuery( '.comment-textarea label' ).remove().text() );
+	}
+
+	// Expando Mode: start small, then auto-resize on first click + text length
+	jQuery( '#comment-form-identity' ).hide();
+	jQuery( '#comment-form-subscribe' ).hide();
+	jQuery( '#commentform .form-submit' ).hide();
+
+	comment.css( { 'height':'10px' } ).one( 'focus', function() {
+		var timer = setInterval( HighlanderComments.resizeCallback, 10 )
+		jQuery( this ).animate( { 'height': HighlanderComments.initialHeight } ).delay( 100 ).queue( function(n) { clearInterval( timer ); HighlanderComments.resizeCallback(); n(); } );
+		jQuery( '#comment-form-identity' ).slideDown();
+		jQuery( '#comment-form-subscribe' ).slideDown();
+		jQuery( '#commentform .form-submit' ).slideDown();
+	});
+}
+jQuery(document).ready( highlander_expando_javascript );
+</script>
+
+<div id="comment-form-subscribe" style="display: none;">
+	<p class="comment-subscription-form"><input type="checkbox" name="subscribe" id="subscribe" value="subscribe" style="width: auto;"> <label class="subscribe-label" id="subscribe-label" for="subscribe" style="display: inline;">Notify me of new comments via email.</label></p><p class="post-subscription-form"><input type="checkbox" name="subscribe_blog" id="subscribe_blog" value="subscribe" style="width: auto;"> <label class="subscribe-label" id="subscribe-blog-label" for="subscribe_blog" style="display: inline;">Notify me of new posts via email.</label></p></div>
+
+						<p class="form-submit" style="display: none;">
+				<input name="submit" type="submit" id="comment-submit" value="Post Comment">
+				<input type="hidden" name="comment_post_ID" value="172" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+			</p>
+			<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="90d3ce751f"></p>
+<input type="hidden" name="genseq" value="1494244427">
+<p style="display: none;"></p>		<input type="hidden" id="ak_js" name="ak_js" value="1494244429650"></form>
+	</div><!-- #respond -->
+	<div style="clear: both"></div>
+</div><!-- #post-extra-content -->
+									</div><!-- #content -->
+			</div><!-- #content-container -->
+
+
+	<div id="sidebar" class="widget-area" role="complementary">
+				<ul class="xoxo">
+
+		
+			<li id="search" class="widget-container widget_search">
+				
+<form method="get" id="searchform" action="https://alphaeridani.wordpress.com/">
+	<div id="searchfield">
+		<label for="s" class="screen-reader-text">Search for:</label>
+		<input type="text" name="s" id="s" class="searchtext">
+		<input type="submit" value="Go" class="searchbutton">
+	</div>
+</form>			</li>
+
+			<li class="widget-container">
+				<h3 class="widget-title"><span>Categories</span></h3>
+				<ul>
+						<li class="cat-item cat-item-961214"><a href="https://alphaeridani.wordpress.com/category/my-maps/">My Maps</a> (2)
+</li>
+	<li class="cat-item cat-item-41322"><a href="https://alphaeridani.wordpress.com/category/odds-and-sods/">Odds and Sods</a> (1)
+</li>
+	<li class="cat-item cat-item-1124"><a href="https://alphaeridani.wordpress.com/category/tutorials/">Tutorials</a> (3)
+</li>
+	<li class="cat-item cat-item-72002163"><a href="https://alphaeridani.wordpress.com/category/ut3-maps/">UT3 Maps</a> (2)
+</li>
+				</ul>
+			</li>
+
+		
+		</ul>
+	</div><!-- #sidebar .widget-area -->
+
+	
+</div><!-- #main -->
+
+		<div id="footer" role="contentinfo">
+			
+				<div id="copyright">
+					<p>
+	 					
+											</p>
+				</div><!-- #copyright -->
+			</div><!-- #footer -->
+	</div><!-- #container -->
+</div><!-- #page -->
+
+<!--  -->
+<script type="text/javascript" src="./Modding for UT3 – Editing and Compiling with uscript_ An introduction _ Alphaeridani Level Design_files/gprofiles.js.download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Modding for UT3 – Editing and Compiling with uscript_ An introduction _ Alphaeridani Level Design_files/wpgroho.js.download"></script>
+
+	<script>
+		//initialize and attach hovercards to all gravatars
+		jQuery( document ).ready( function( $ ) {
+
+			if (typeof Gravatar === "undefined"){
+				return;
+			}
+
+			if ( typeof Gravatar.init !== "function" ) {
+				return;
+			}			
+
+			Gravatar.profile_cb = function( hash, id ) {
+				WPGroHo.syncProfileData( hash, id );
+			};
+			Gravatar.my_hash = WPGroHo.my_hash;
+			Gravatar.init( 'body', '#wp-admin-bar-my-account' );
+		});
+	</script>
+
+		<div style="display:none">
+	</div>
+<script type="text/javascript">
+/* <![CDATA[ */
+var HighlanderComments = {"loggingInText":"Logging In\u2026","submittingText":"Posting Comment\u2026","postCommentText":"Post Comment","connectingToText":"Connecting to %s","commentingAsText":"%1$s: You are commenting using your %2$s account.","logoutText":"Log Out","loginText":"Log In","connectURL":"https:\/\/alphaeridani.wordpress.com\/public.api\/connect\/?action=request","logoutURL":"https:\/\/alphaeridani.wordpress.com\/wp-login.php?action=logout&_wpnonce=e08ff6dd9d","homeURL":"https:\/\/alphaeridani.wordpress.com\/","postID":"172","gravDefault":"mystery","enterACommentError":"Please enter a comment","enterEmailError":"Please enter your email address here","invalidEmailError":"Invalid email address","enterAuthorError":"Please enter your name here","gravatarFromEmail":"This picture will show whenever you leave a comment. Click to customize it.","logInToExternalAccount":"Log in to use details from one of these accounts.","change":"Change","changeAccount":"Change Account","comment_registration":"1","userIsLoggedIn":"","isJetpack":"0","text_direction":"ltr"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Modding for UT3 – Editing and Compiling with uscript_ An introduction _ Alphaeridani Level Design_files/saved_resource(3)"></script>
+<script type="text/javascript" src="./Modding for UT3 – Editing and Compiling with uscript_ An introduction _ Alphaeridani Level Design_files/form.js.download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var actionbardata = {"siteID":"17678432","siteName":"Alphaeridani Level Design","siteURL":"http:\/\/alphaeridani.wordpress.com","icon":"<img alt='' src='https:\/\/s1.wp.com\/i\/logo\/wpcom-gray-white.png' class='avatar avatar-50' height='50' width='50' \/>","canManageOptions":"","canCustomizeSite":"","isFollowing":"","themeSlug":"pub\/mystique","signupURL":"https:\/\/wordpress.com\/start\/","loginURL":"https:\/\/alphaeridani.wordpress.com\/wp-login.php?redirect_to=https%3A%2F%2Falphaeridani.wordpress.com%2F2012%2F05%2F06%2Fediting-and-compiling-uscript%2F","themeURL":"","xhrURL":"https:\/\/alphaeridani.wordpress.com\/wp-admin\/admin-ajax.php","nonce":"485e562343","isSingular":"1","isFolded":"","isLoggedIn":"","isMobile":"","subscribeNonce":"<input type=\"hidden\" id=\"_wpnonce\" name=\"_wpnonce\" value=\"f70f269a41\" \/>","referer":"https:\/\/alphaeridani.wordpress.com\/2012\/05\/06\/editing-and-compiling-uscript\/","canFollow":"","statusMessage":"","customizeLink":"https:\/\/alphaeridani.wordpress.com\/wp-admin\/customize.php?url=https%3A%2F%2Falphaeridani.wordpress.com%2F2012%2F05%2F06%2Fediting-and-compiling-uscript%2F","postID":"172","shortlink":"http:\/\/wp.me\/p1caY0-2M","canEditPost":"","editLink":"https:\/\/wordpress.com\/post\/alphaeridani.wordpress.com\/172","statsLink":"https:\/\/wordpress.com\/stats\/post\/172\/alphaeridani.wordpress.com","i18n":{"view":"View site","follow":"Follow","following":"Following","edit":"Edit","login":"Log in","signup":"Sign up","customize":"Customize","report":"Report this content","themeInfo":"Get theme: Mystique","shortlink":"Copy shortlink","copied":"Copied","followedText":"New posts from this site will now appear in your <a href=\"https:\/\/wordpress.com\/\">Reader<\/a>","foldBar":"Collapse this bar","unfoldBar":"Expand this bar","editSubs":"Manage subscriptions","viewReader":"View site in the Reader","subscribe":"Sign me up","enterEmail":"Enter your email address","followers":"","alreadyUser":"Already have a WordPress.com account? <a href=\"https:\/\/alphaeridani.wordpress.com\/wp-login.php?redirect_to=https%3A%2F%2Falphaeridani.wordpress.com%2F2012%2F05%2F06%2Fediting-and-compiling-uscript%2F\">Log in now.<\/a>","stats":"Stats"}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Modding for UT3 – Editing and Compiling with uscript_ An introduction _ Alphaeridani Level Design_files/saved_resource(4)"></script><div id="actionbar" class="actnbr-pub-mystique actnbr-has-follow"><ul><li class="actnbr-ellipsis actnbr-hidden"> 			  <svg class="gridicon gridicon__ellipsis" height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><circle cx="5" cy="12" r="2"></circle><circle cx="19" cy="12" r="2"></circle><circle cx="12" cy="12" r="2"></circle></g></svg> 			  <div class="actnbr-popover tip tip-top-left actnbr-more"> 			  	<div class="tip-arrow"></div> 			  	<div class="tip-inner"> 				  <ul> 				    <li class="actnbr-sitename actnbr-hidden"><a href="http://alphaeridani.wordpress.com/"><img alt="" src="./Modding for UT3 – Editing and Compiling with uscript_ An introduction _ Alphaeridani Level Design_files/wpcom-gray-white.png" class="avatar avatar-50" height="50" width="50"> Alphaeridani Level Design</a></li> 				   	<li class="actnbr-folded-customize actnbr-hidden"><a href="https://alphaeridani.wordpress.com/wp-admin/customize.php?url=https%3A%2F%2Falphaeridani.wordpress.com%2F2012%2F05%2F06%2Fediting-and-compiling-uscript%2F"><svg class="gridicon gridicon__customize" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M2 6c0-1.505.78-3.08 2-4 0 .845.69 2 2 2 1.657 0 3 1.343 3 3 0 .386-.08.752-.212 1.09.74.594 1.476 1.19 2.19 1.81L8.9 11.98c-.62-.716-1.214-1.454-1.807-2.192C6.753 9.92 6.387 10 6 10c-2.21 0-4-1.79-4-4zm12.152 6.848l1.34-1.34c.607.304 1.283.492 2.008.492 2.485 0 4.5-2.015 4.5-4.5 0-.725-.188-1.4-.493-2.007L18 9l-2-2 3.507-3.507C18.9 3.188 18.225 3 17.5 3 15.015 3 13 5.015 13 7.5c0 .725.188 1.4.493 2.007L3 20l2 2 6.848-6.848c1.885 1.928 3.874 3.753 5.977 5.45l1.425 1.148 1.5-1.5-1.15-1.425c-1.695-2.103-3.52-4.092-5.448-5.977z" data-reactid=".2.1.1:0.1b.0"></path></g></svg><span>Customize<span></span></span></a></li> 				     					<li class="actnbr-signup actnbr-hidden"><a href="https://wordpress.com/start/">Sign up</a></li> 				    <li class="actnbr-login actnbr-hidden"><a href="https://alphaeridani.wordpress.com/wp-login.php?redirect_to=https%3A%2F%2Falphaeridani.wordpress.com%2F2012%2F05%2F06%2Fediting-and-compiling-uscript%2F">Log in</a></li> 				     				    <li class="actnbr-shortlink actnbr-hidden"><a href="http://wp.me/p1caY0-2M">Copy shortlink</a></li> 				    <li class="flb-report actnbr-hidden"><a href="http://en.wordpress.com/abuse/">Report this content</a></li> 				     				     				    <li class="actnbr-subs actnbr-hidden"><a href="https://subscribe.wordpress.com/">Manage subscriptions</a></li> 				     			      </ul> 			    </div> 		      </div> 		    </li> 	      </ul></div>
+<script type="text/javascript">
+// <![CDATA[
+(function() {
+try{
+  if ( window.external &&'msIsSiteMode' in window.external) {
+    if (window.external.msIsSiteMode()) {
+      var jl = document.createElement('script');
+      jl.type='text/javascript';
+      jl.async=true;
+      jl.src='/wp-content/plugins/ie-sitemode/custom-jumplist.php';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(jl, s);
+    }
+  }
+}catch(e){}
+})();
+// ]]>
+</script>	<script type="text/javascript">
+	var skimlinks_pub_id = "725X584219"
+	var skimlinks_sitename = "alphaeridani.wordpress.com";
+	</script>
+	<script type="text/javascript" defer="" src="./Modding for UT3 – Editing and Compiling with uscript_ An introduction _ Alphaeridani Level Design_files/725X1342.skimlinks.js.download"></script>		<iframe src="./Modding for UT3 – Editing and Compiling with uscript_ An introduction _ Alphaeridani Level Design_files/master.html" scrolling="no" id="likes-master" name="likes-master" style="display:none;"></iframe>
+		<div id="likes-other-gravatars"><div class="likes-text"><span>%d</span> bloggers like this:</div><ul class="wpl-avatars sd-like-gravatars"></ul></div>
+		<script>
+			var _comscore = _comscore || [];
+			_comscore.push({
+				c1: "2",
+				c2: "7518284"
+			});
+			(function() {
+				var s = document.createElement("script"),
+					el = document.getElementsByTagName("script")[0];
+				s.defer = true;
+				s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+				el.parentNode.insertBefore(s, el);
+			})();
+		</script>
+		<noscript>
+			&lt;p class="robots-nocontent"&gt;&lt;img src="https://sb.scorecardresearch.com/p?c1=2&amp;c2=7518284&amp;c3=&amp;c4=&amp;c5=&amp;c6=&amp;c15=&amp;cv=2.0&amp;cj=1" alt="" style="display:none;" width="1" height="1" /&gt;&lt;/p&gt;
+		</noscript><script src="./Modding for UT3 – Editing and Compiling with uscript_ An introduction _ Alphaeridani Level Design_files/w.js.download" type="text/javascript" async="" defer=""></script>
+<script type="text/javascript">
+_tkq = window._tkq || [];
+_stq = window._stq || [];
+_tkq.push(['storeContext', {'blog_id':'17678432','blog_tz':'0','user_lang':'en','blog_lang':'en','user_id':'0'}]);
+_stq.push(['view', {'blog':'17678432','v':'wpcom','tz':'0','user_id':'0','post':'172','subd':'alphaeridani'}]);
+_stq.push(['extra', {'crypt':'UE5XaGUuOTlwaD85flAmcm1mcmZsaDhkV11YdWpYP2xZaVBVeHZiOUhkaixZNmFrdXRYfEk3ajJqTz03c2U1T19RNEl6XUJ6aEt3SDAxN3FZb3k0PSZRd2dUdCUudmNUMUpCRytsOThOamxQR19GVC9oLjQvNnpCRENYX2FMfENoRF1bTDFuWEQrbE9WOU5NSGlYTXkvTmlHJnJJRnY0a1hkckwrWmZMbFR1aDN3SGRtT2s0aDdzQ3F5U0ZmcSsycWQmM2JJUy54X3l4RTI5cF8zSXBOPz1ddXlyQVtiZ1osUjdpbUl6eS5MZnRFZm9jdjdhUGl5bGN+'}]);
+_stq.push([ 'clickTrackerInit', '17678432', '172' ]);
+	</script>
+<noscript>&lt;img src="https://pixel.wp.com/b.gif?v=noscript" style="height:0px;width:0px;overflow:hidden" alt="" /&gt;</noscript>
+<script>
+if ( 'object' === typeof wpcom_mobile_user_agent_info ) {
+
+	wpcom_mobile_user_agent_info.init();
+	var mobileStatsQueryString = "";
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedPlatformName )
+		mobileStatsQueryString += "&x_" + 'mobile_platforms' + '=' + wpcom_mobile_user_agent_info.matchedPlatformName;
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedUserAgentName )
+		mobileStatsQueryString += "&x_" + 'mobile_devices' + '=' + wpcom_mobile_user_agent_info.matchedUserAgentName;
+	
+	if( wpcom_mobile_user_agent_info.isIPad() )
+		mobileStatsQueryString += "&x_" + 'ipad_views' + '=' + 'views';
+
+	if( "" != mobileStatsQueryString ) {
+		new Image().src = document.location.protocol + '//pixel.wp.com/g.gif?v=wpcom-no-pv' + mobileStatsQueryString + '&baba=' + Math.random();
+	}
+	
+}
+</script>
+
+<img src="./Modding for UT3 – Editing and Compiling with uscript_ An introduction _ Alphaeridani Level Design_files/g.gif" alt=":)" id="wpstats"></body></html>
