@@ -1,10 +1,2 @@
-
-# Private folders
+# Hide all Private folders
 #*/Private/*
-
-# Compressed
-#*.zip
-
-# Demos
-#*.demo
-
