@@ -1,5 +1,0 @@
-# Hide big files
-*.udk
-
-#END
-!.gitignore
