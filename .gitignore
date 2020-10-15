@@ -1,5 +1,5 @@
 # Hide all Private folders
-*/Private/*
+*/.private/*
 
 #END
 !.gitignore
