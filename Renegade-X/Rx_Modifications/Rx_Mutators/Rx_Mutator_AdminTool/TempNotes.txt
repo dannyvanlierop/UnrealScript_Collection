@@ -1,0 +1,2000 @@
+
+1 - /* COMMENT */		-		/\*.*?\*/
+2 - //COMMENT			-		//.*
+3 - DoubleTAB
+4 - DoubleSpace
+5 - Empty lines			-		\r\n\r\n	replace with 	\r\n
+						^$		replace with 	none
+						^\s*		replace with	none
+
+But For Line Comment:
+
+//.*?(?=\r?$)
+
+Explanation:
+
+// will be the Starting Position
+
+.*? Will be any character
+
+(?=\r?$) will search to the end of the line (as it is required in line comment)
+
+
+exec function ChangeServerName(string iValue){								//GameReplicationInfo - 
+	ChangeServerNameServer(iValue);
+}
+reliable server function ChangeServerNameServer(string iValue){				//GameReplicationInfo - 
+
+	local GameReplicationInfo myGameReplicationInfo;
+	
+	foreach class'WorldInfo'.static.GetWorldInfo().AllActors(class'GameReplicationInfo',myGameReplicationInfo)
+	//foreach class'WorldInfo'.static.GetWorldInfo().AllControllers(class'Rx_Mutator_AdminTool_Controller', myAdminTool_Controller)
+	//foreach Rx_Game(`WorldInfoObject.Game).AllActors(class'Rx_Mutator_AdminTool_Controller', myAdminTool_Controller) //Get the AdminTool controller.
+	{
+		myGameReplicationInfo.ServerName=iValue;
+		break;
+	}
+}
+exec function ChangeMaxPlayers(int iValue){									//GameInfo - 
+	ChangeMaxPlayersServer(iValue);
+}
+reliable server function ChangeMaxPlayersServer(int iValue){				//GameInfo - 
+
+	local GameInfo myGameInfo;
+	
+	foreach class'WorldInfo'.static.GetWorldInfo().AllActors(class'GameInfo',myGameInfo)
+	//foreach class'WorldInfo'.static.GetWorldInfo().AllControllers(class'Rx_Mutator_AdminTool_Controller', myAdminTool_Controller)
+	//foreach Rx_Game(`WorldInfoObject.Game).AllActors(class'Rx_Mutator_AdminTool_Controller', myAdminTool_Controller) //Get the AdminTool controller.
+	{
+		myGameInfo.MaxPlayers=iValue;
+		break;
+	}
+}
+exec function ChangeWaitingToStartMatch(bool iValue){						//GameInfo - 
+	ChangeWaitingToStartMatchServer(iValue);
+}
+reliable server function ChangeWaitingToStartMatchServer(bool iValue){		//GameInfo - 
+
+	local GameInfo myGameInfo;
+	
+	foreach class'WorldInfo'.static.GetWorldInfo().AllActors(class'GameInfo',myGameInfo)
+	//foreach class'WorldInfo'.static.GetWorldInfo().AllControllers(class'Rx_Mutator_AdminTool_Controller', myAdminTool_Controller)
+	//foreach Rx_Game(`WorldInfoObject.Game).AllActors(class'Rx_Mutator_AdminTool_Controller', myAdminTool_Controller) //Get the AdminTool controller.
+	{
+		myGameInfo.bWaitingToStartMatch=iValue;
+		break;
+	}
+}
+exec function ChangeMaxPlayersAllowed(int iValue){							//GameInfo - 
+	ChangeMaxPlayersAllowedServer(iValue);
+}
+reliable server function ChangeMaxPlayersAllowedServer(int iValue){			//GameInfo - 
+
+	local GameInfo myGameInfo;
+	
+	foreach class'WorldInfo'.static.GetWorldInfo().AllActors(class'GameInfo',myGameInfo)
+	//foreach class'WorldInfo'.static.GetWorldInfo().AllControllers(class'Rx_Mutator_AdminTool_Controller', myAdminTool_Controller)
+	//foreach Rx_Game(`WorldInfoObject.Game).AllActors(class'Rx_Mutator_AdminTool_Controller', myAdminTool_Controller) //Get the AdminTool controller.
+	{
+		myGameInfo.MaxPlayersAllowed=iValue;
+		break;
+	}
+}
+exec function ChangeGoalScoreGI(int iValue){								//GameInfo - 
+	ChangeGoalScoreGIServer(iValue);
+}
+reliable server function ChangeGoalScoreGIServer(int iValue){				//GameInfo - 
+
+	local GameInfo myGameInfo;
+	
+	foreach class'WorldInfo'.static.GetWorldInfo().AllActors(class'GameInfo',myGameInfo)
+	//foreach class'WorldInfo'.static.GetWorldInfo().AllControllers(class'Rx_Mutator_AdminTool_Controller', myAdminTool_Controller)
+	//foreach Rx_Game(`WorldInfoObject.Game).AllActors(class'Rx_Mutator_AdminTool_Controller', myAdminTool_Controller) //Get the AdminTool controller.
+	{
+		myGameInfo.GoalScore=iValue;
+		break;
+	}
+}
+exec function ChangeInitialCredits(int iValue){								//Rx_Game - 
+	ChangeInitialCreditsServer(iValue);
+}
+reliable server function ChangeInitialCreditsServer(int iValue){			//Rx_Game - 
+
+	local Rx_Game myRx_Game;
+	
+	foreach class'WorldInfo'.static.GetWorldInfo().AllActors(class'Rx_Game',myRx_Game)
+	//foreach class'WorldInfo'.static.GetWorldInfo().AllControllers(class'Rx_Mutator_AdminTool_Controller', myAdminTool_Controller)
+	//foreach Rx_Game(`WorldInfoObject.Game).AllActors(class'Rx_Mutator_AdminTool_Controller', myAdminTool_Controller) //Get the AdminTool controller.
+	{
+		myRx_Game.InitialCredits=iValue;
+		break;
+	}
+}
+exec function ChangeTimeLimit3(int iValue){									//Rx_Game - 
+	ChangeTimeLimit3Server(iValue);
+}
+reliable server function ChangeTimeLimit3Server(int iValue){				//Rx_Game - 
+
+	local Rx_Game myRx_Game;
+	
+	foreach class'WorldInfo'.static.GetWorldInfo().AllActors(class'Rx_Game',myRx_Game)
+	//foreach class'WorldInfo'.static.GetWorldInfo().AllControllers(class'Rx_Mutator_AdminTool_Controller', myAdminTool_Controller)
+	//foreach Rx_Game(`WorldInfoObject.Game).AllActors(class'Rx_Mutator_AdminTool_Controller', myAdminTool_Controller) //Get the AdminTool controller.
+	{
+		myRx_Game.TimeLimit=iValue;
+		break;
+	}
+}
+exec function ChangeWarmupTime(int iValue){									//Rx_Game - 
+	ChangeWarmupTimeServer(iValue);
+}
+reliable server function ChangeWarmupTimeServer(int iValue){				//Rx_Game - 
+
+	local Rx_Game myRx_Game;
+	
+	foreach class'WorldInfo'.static.GetWorldInfo().AllActors(class'Rx_Game',myRx_Game)
+	//foreach class'WorldInfo'.static.GetWorldInfo().AllControllers(class'Rx_Mutator_AdminTool_Controller', myAdminTool_Controller)
+	//foreach Rx_Game(`WorldInfoObject.Game).AllActors(class'Rx_Mutator_AdminTool_Controller', myAdminTool_Controller) //Get the AdminTool controller.
+	{
+		myRx_Game.WarmupTime=iValue;
+		break;
+	}
+}
+
+
+exec function ChangeTimeLimit1(int iValue){									//GameReplicationInfo - 
+	ChangeTimeLimit1Server(iValue);
+}
+reliable server function ChangeTimeLimit1Server(int iValue){				//GameReplicationInfo - 
+
+	local GameReplicationInfo myGameReplicationInfo;
+	
+	foreach class'WorldInfo'.static.GetWorldInfo().AllActors(class'GameReplicationInfo',myGameReplicationInfo)
+	//foreach class'WorldInfo'.static.GetWorldInfo().AllControllers(class'Rx_Mutator_AdminTool_Controller', myAdminTool_Controller)
+	//foreach Rx_Game(`WorldInfoObject.Game).AllActors(class'Rx_Mutator_AdminTool_Controller', myAdminTool_Controller) //Get the AdminTool controller.
+	{
+		myGameReplicationInfo.TimeLimit=iValue;
+		break;
+	}
+}
+exec function ChangeTime2Limit(int iValue){									//GameInfo - 
+	ChangeTimeLimit2Server(iValue);
+}
+reliable server function ChangeTimeLimit2Server(int iValue){				//GameInfo - 
+
+	local GameInfo myGameInfo;
+	
+	foreach class'WorldInfo'.static.GetWorldInfo().AllActors(class'GameInfo',myGameInfo)
+	//foreach class'WorldInfo'.static.GetWorldInfo().AllControllers(class'Rx_Mutator_AdminTool_Controller', myAdminTool_Controller)
+	//foreach Rx_Game(`WorldInfoObject.Game).AllActors(class'Rx_Mutator_AdminTool_Controller', myAdminTool_Controller) //Get the AdminTool controller.
+	{
+		myGameInfo.TimeLimit=iValue;
+		break;
+	}
+}
+exec function ChangeGoalScoreRPI(int iValue){								//GameReplicationInfo - 
+	ChangeGoalScoreRPIServer(iValue);
+}
+reliable server function ChangeGoalScoreRPIServer(int iValue){				//GameReplicationInfo - 
+
+	local GameReplicationInfo myGameReplicationInfo;
+	
+	foreach class'WorldInfo'.static.GetWorldInfo().AllActors(class'GameReplicationInfo',myGameReplicationInfo)
+	//foreach class'WorldInfo'.static.GetWorldInfo().AllControllers(class'Rx_Mutator_AdminTool_Controller', myAdminTool_Controller)
+	//foreach Rx_Game(`WorldInfoObject.Game).AllActors(class'Rx_Mutator_AdminTool_Controller', myAdminTool_Controller) //Get the AdminTool controller.
+	{
+		myGameReplicationInfo.GoalScore=iValue;
+		break;
+	}
+}
+
+
+
+
+
+
+
+
+//		
+//		exec function ChangeProbabilityNuke(float iValue){
+//			ChangeProbabilityNukeServer(iValue);
+//		}
+//		reliable server function ChangeProbabilityNukeServer(float iValue){
+//		
+//			local Actor A;
+//			local Rx_CrateType myRx_CrateType;
+//			local Rx_CratePickup myRx_CratePickup;
+//			
+//			
+//			if ( myRx_Mutator_AdminTool_CrateType_Nuke != None)
+//			return;
+//		
+//			myRx_Mutator_AdminTool_CrateType_Nuke.BaseProbability =( myRx_Mutator_AdminTool_CrateType_Nuke.BaseProbability + 1 );
+//			myRx_Mutator_AdminTool_CrateType_Nuke.BaseProbability = (iValue);
+//			
+//			
+//			foreach ActorVar.DynamicActors(class'Pawn', P)
+//			foreach AllActors(class'Rx_CrateType', myRx_CrateType)
+//			{
+//				break;
+//			}
+//			
+//			foreach AllActors(class'Rx_CrateType', myRx_CratePickup)
+//			{
+//				break;
+//			}
+//			
+//			
+//				myRx_Mutator_AdminTool_CrateType_Nuke.BaseProbability = (iValue);
+//				myRx_CrateType.BaseProbability = (iValue);
+//				myRx_CratePickup.InstantiateDefaultCrateTypes();
+//		}
+//		
+
+
+//		simulated function InitGameReplicationInfo(optional bool bIsActor)
+//		{
+//		if (bIsActor) { foreach Rx_Game(`WorldInfoObject.Game).AllActors(class'GameReplicationInfo', myGameReplicationInfo) break; }
+//			else { foreach class'WorldInfo'.static.GetWorldInfo().AllActors(class'GameReplicationInfo', myGameReplicationInfo) break; }
+
+
+	
+		//break;
+	//}
+
+
+
+//	foreach DynamicActors(class 'Rx_Pawn', PlayerPawn)
+//	{
+//		for (x = 1; x <= iHealthIncreaseValue; x++)
+//        {
+//			if ( PlayerPawn.Health + 1 <= PlayerPawn.HealthMax )
+//			{
+//				PlayerPawn.Health=( PlayerPawn.Health++ );
+//			}
+//			else
+//			{
+//				x= iHealthIncreaseValue + 1;
+//			}
+//		}
+//	}
+//
+
+
+//		simulated function InitGameReplicationInfo(optional bool bIsActor)
+//		{
+//		if (bIsActor) { foreach Rx_Game(`WorldInfoObject.Game).AllActors(class'GameReplicationInfo', myGameReplicationInfo) break; }
+//			else { foreach class'WorldInfo'.static.GetWorldInfo().AllActors(class'GameReplicationInfo', myGameReplicationInfo) break; }
+//		}
+
+
+//		WorldInfo.GRI == None
+		
+//		function Reset()
+//		{
+//			local Controller C;
+//			local int i;
+//		
+//			InitGameReplicationInfo(false);
+//			
+//			//reset timelimit
+//			GameReplicationInfo.RemainingTime = 60 * TimeLimit;
+//			// if the round lasted less than one minute, we won't be actually changing RemainingMinute
+//			// which will prevent it from being replicated, so in that case
+//			// reduce the time limit by one second to ensure that it is unique
+//			if ( GameReplicationInfo.RemainingTime == GameReplicationInfo.RemainingMinute )
+//			{
+//				GameReplicationInfo.RemainingTime--;
+//			}
+//			GameReplicationInfo.RemainingMinute = GameReplicationInfo.RemainingTime;
+//		
+//		
+//		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Rx_CrateType_CivilianVehicle
+
+//	[RenX_Game.Rx_CrateType_Money]
+//	BaseProbability=2.5
+//	StartSpawnTime=0
+//	ProbabilityIncreaseWhenPowerPlantDestroyed=0.5
+//	ProbabilityIncreaseWhenRefineryDestroyed=1.0
+//	MinutesToGiveSmallSum=5.0
+//	
+//	[RenX_Game.Rx_CrateType_Spy]
+//	BaseProbability=0.3
+//	StartSpawnTime=240
+//	MinutesUntilProbabiltyIncreaseStart=10.0
+//	ProbabilityIncreasePerMinute=0.05
+//	MaxProbabilityIncrease=1.0
+//	
+//	[RenX_Game.Rx_CrateType_Refill]
+//	BaseProbability=2.0
+//	StartSpawnTime=0
+//	
+//	[RenX_Game.Rx_CrateType_Vehicle]
+//	BaseProbability=0.5
+//	StartSpawnTime=300
+//	ProbabilityIncreaseWhenVehicleProductionDestroyed=0.75
+//	
+//	[RenX_Game.Rx_CrateType_CivilianVehicle]
+//	BaseProbability=0.3
+//	StartSpawnTime=300
+//	ProbabilityIncreaseWhenVehicleProductionDestroyed=0.75
+//	
+//	[RenX_Game.Rx_CrateType_Character]
+//	BaseProbability=1.0
+//	StartSpawnTime=120
+//	ProbabilityIncreaseWhenInfantryProductionDestroyed=1.0
+//	
+//	[RenX_Game.Rx_CrateType_Speed]
+//	BaseProbability=0.7
+//	StartSpawnTime=120
+//	
+//	[RenX_Game.Rx_CrateType_Suicide]
+//	BaseProbability=0.0
+//	StartSpawnTime=0
+//	
+//	[RenX_Game.Rx_CrateType_TimeBomb]
+//	BaseProbability=0.5
+//	StartSpawnTime=0
+//	
+//	[RenX_Game.Rx_CrateType_Nuke]
+//	BaseProbability=0.2
+//	StartSpawnTime=0
+//	
+//	[RenX_Game.Rx_CrateType_Abduction]
+//	BaseProbability=0.0
+//	StartSpawnTime=0
+//	
+//	[RenX_Game.Rx_CrateType_TSVehicle]
+//	BaseProbability=0.1
+//	StartSpawnTime=300
+//	ProbabilityIncreaseWhenVehicleProductionDestroyed=0.2
+//	
+//	[RenX_Game.Rx_CrateType_Veterancy]
+//	BaseProbability=0.4
+//	StartSpawnTime=120
+
+
+//function ShowVoteMenuConsole(string preappendtext){	/** one1: Console input for vote choices. */
+//
+//	local Console PlayerConsole;
+//	local LocalPlayer LP;
+//
+//	LP = LocalPlayer( Player );
+//	if( ( LP != None ) && ( LP.ViewportClient.ViewportConsole != None ) )
+//	{
+//		PlayerConsole = LocalPlayer( Player ).ViewportClient.ViewportConsole;
+//		PlayerConsole.StartTyping(preappendtext);
+//	}
+//}
+
+
+
+
+
+
+
+	var int iAccessByPlayersVoteMenuExtension						//
+var int iAccessByPlayersAdminToolMenu		
+	
+	
+	
+	
+	local Rx_Mutator_AdminTool_Controller atpc;
+	local Rx_Controller pc;
+	local string s;
+	local bool bDrawingMapVotes;
+
+	
+	pc = Rx_Controller(PlayerOwner);	
+	atpc = Rx_Mutator_AdminTool_Controller(PlayerOwner);
+	
+	
+	
+	
+	
+	<19:42:23> "Agent": !rcon YourCustomCommand blah blah
+<19:43:01> "Agent": !rcon exit
+<19:43:18> "Agent": Rx_Rcon_Command
+<19:45:33> "Agent": `RxEngineObject.AddRCONCommand(class'YourCustomCommand&apos;
+<19:45:36> "Agent": InitMutator
+
+InitRconCommands
+
+
+
+
+Generally there are two ways to approach this. One which will work without knowing what TeamIndicies are actually used and one that needs to know them beforehand.
+Since the first does it for everything I'll just focus on that.
+
+The first thing we need is an array that will be the result of the AssignSO function. This array needs to store one Controller per TeamIndex that is used (one of the team indices is used for neutral players, I believe it is (byte)-1 so 255). But we also need to be able to identify whether we already found a Controller for a specific TeamIndex or not. To do this we will also store the TeamIndex for that Controller in the array, which means we need a struct. Within AssignSO we simply iterate over AllControllers, checking whether our resulting array already has an item with the same TeamIndex, if not we add a new item, otherwise do nothing.
+
+Code:
+struct TeamIndexController
+{
+	var int TeamIndex;
+	var Controller Controller;
+};
+
+function array<TeamIndexController> AssignSO()
+{
+	local Controller c;
+	local TeamIndexController item;
+	local array<TeamIndexController> result;
+
+	foreach WorldInfo.AllControllers(class'Controller', c)
+	{
+		if (result.find('TeamIndex', c.PlayerReplicationInfo.Team.TeamIndex) == INDEX_NONE)
+		{
+			item.Controller = c;
+			item.TeamIndex = c.PlayerReplicationInfo.Team.TeamIndex;
+			result.addItem(item);
+		}
+	}
+
+	return result;
+}
+
+Edit: I'm sorry should have triple-checked before posting. Cleared things up regarding TeamIndex 255/-1. Code should still work though.
+
+
+
+
+
+
+
+To get the actual name of a random player per team, could try this.
+
+Code:
+var string RedPlayersName, BluePlayersName;
+
+function AssignSO()
+{
+    local int Chosen;
+    local Controller C, RedPlayer, BluePlayer;//human or bot
+    local array<Controller> TeamRed, TeamBlue;
+    
+ 
+    foreach WorldInfo.AllControllers(class'Controller', C)
+    {
+        if(C.PlayerReplicationInfo.Team.TeamIndex == 0)
+        {
+            TeamRed[TeamRed.Length] = C;
+        }
+        else
+          TeamBlue[TeamBlue.Length] = C;
+    }
+
+    
+    //gets reds random chosen player
+    Chosen = Rand(TeamRed.Length);
+    RedPlayer = TeamRed[Chosen];
+    RedPlayersName = RedPlayer.PlayerReplicationInfo.PlayerName;
+
+    //gets blues random chosen player
+    Chosen = Rand(TeamBlue.Length);
+    BluePlayer = TeamBlue[Chosen];
+    BluePlayersName = BluePlayer.PlayerReplicationInfo.PlayerName;
+
+}
+
+
+
+
+General Commands
+■Debugging Commands
+■Statistics Commands
+■Memory and Performance Commands
+■Display Commands
+■Rendering Commands
+■Texture Mip-Map Fading Commands
+■Physics Commands
+■Audio Commands
+■Networking Commands
+■Still Captures and Demo Recording Commands
+■Movie Capture
+■Gameplay Commands
+■Navigation and Pathfinding Commands
+■User Interface Commands
+■Miscellaneous Commands
+■System Settings Commands
+■Mobile Commands
+■Editor-Specific Commands
+
+
+Overview
+
+Console commands are string-based commands that you can run in the game or in the editor. They are also known as exec commands.
+
+To use console commands, bring up the console by pressing Tab or Tilde (~), type them in, and press Enter. Console commands may be executed from within the game, from within the editor, or if the game has been started using the -server switch, from the server's console. They can do various things from resetting the engine to setting particular actor's variables.
+
+Lists of commands can also be stored in text files in the system directory and executed by typing exec _filename_ at the console.
+
+Command List
+
+The following is a list of engine supported console commands...
+
+
+General Commands
+
+•CANCEL - tells the engine to cancel an in progress connection attempt
+•DISCONNECT - disconnects the client from the current game/server
+•EXIT - tells the engine to shutdown and close the application.
+•MAP - alias for START
+•OPEN - tells the engine to open a map by the name of the string that comes immediately after, including any additional URL Parameters (via command-line arguments); uses TRAVEL_Partial
+•QUIT - same as EXIT
+•RECONNECT - reconnects the client to the current game/server
+•SERVERTRAVEL - travels the client to the server by the name/address of the string that comes immediately after
+•START - similar to OPEN, difference is it does a TRAVEL_Absolute instead of TRAVEL_Partial.
+•STREAMMAP – Does a prepare and commit map change on the URL.
+
+Debugging Commands
+
+•ANALYZEOCTREE [option] – Outputs information about the octree.
+◦VERBOSE – Outputs detailed information.
+•CANCELMATINEE [param] – Skips current matinee; parameter is the number of seconds into the matinee the player must be before the command will work.
+•CLOSEEDITORVIEWPORT – Closes the PIE viewport.
+•COLLAPSEOCTREE – Collapses tree children in the octree.
+•CONFIGHASH - Displays configuration information
+•CONFIGMEM – Displays memory usage
+•COUNTDISBALEDPARTICLEITEMS – Outputs the number of disabled particle systems, lod levels, and modules.
+•CUSTOMLODDATA [LOD=lod] – Set a custom level of detail to use for static meshes.
+•DEBUG - Is used to simulate various errors with the following parameters identifying which
+◦ASSERT – Tells the engine to simulate an Assert being triggered.
+◦BUFFEROVERRUN – Tells the engine to performa stack overflow test.
+◦CRASH - Tells the engine to simulate a fatal crash
+◦EATMEM - Tells the engine to simulate eating up all available system memory
+◦GPF - tells the engine to simulate a general protection fault
+◦HITCH – Tells the engine to simulate a hitch in the game by sleeping for one second.
+◦LONGLOG – Outputs a long log message to test the buffer resize code used for the log.
+◦RECURSE - tells the engine to simulate a runaway recursion or loop
+◦RENDERCRASH - tells the engine to simulate a fatal crash on the render thread
+◦SLEEP - sleep for a couple seconds
+•DEBUGPREFAB [object] [command] – Output info about the specified prefab. Command can be one of the following:
+◦GRAPH – Show sub-object graph for prefab.
+◦SHOWMAP - Show archetype mappings for prefab.
+•DIR - displays all used directories and files
+•DISABLEALLSCREENMESSAGES – Disables al onscreen message or warnings.
+•DISTFACTORSTATS – Outputs information on DistanceFactor used for rendering SkeletalMeshComponents during the game.
+•DN [comment] – Creates a note actor with the specified comment at the current location. Only in PIE game.
+•DUMPDYNAMICLIGHTSHADOWINTERACTONS – Outputs dynamic lighting and shadow interactions for the scene to the log; only includes shadow casting interactions.
+•DUMPLINECHECKS – Output results of line checks since last reset if LINE_CHECK_TRACING is defined.
+•DUMPMATERIALSTATS [platform] – Outputs material statistics for the specified platform.
+•DUMPNATIVES - displays all native functions.
+•DUMPSHADERSTATS [platform] – Outputs shader statistics for the specified platform.
+•EDITACTOR [parameter] – Edit the properties of first found actor according to the parameter.
+◦CLASS= - Class to look for.
+◦NAME= - Name to look for
+◦TRACE – Trace player view for first hit actor.
+•EDITDEFAULT [CLASS=class] – Open property editor for default properties of specified class. Only allowed in standalone.
+•EDITOBJECT [parameter] – Edit the properties of the first found object of the specified class or with the given name.
+◦CLASS= - Class to look for.
+◦NAME= - Name to look for.
+•ENABLEALLSCREENMESSAGES – Enables all onscreen messages or warnings.
+•EXEC [filename] – Executes the contents (other console commands) of the specified file.
+•FORCESKELLOD [option] – Force a specific level of detail for skeletal meshes. Option is:
+◦LOD= - LOD to force.
+•GAMEVER / GAMEVERSION – Outputs the engine version and changelist to the log.
+•GETMAXTICKRATE – Outputs the max tick rate to the log.
+•FLUSH - tells the engine to flush all engine caches
+•FLUSHLOG – Tells the engine to flush the logs.
+•FLUSHPERSISTENTDEBUGLINES – Clears all persistent debug line draws.
+•FRAMECOMPUPDATES – Outputs a list of all component updates over one frame.
+•HIDELOGDETAILEDTICKSTATS – Turns off output of all detailed statistics.
+•KILLPARTICLES – Deactivate particle systems and destroy all particles.
+•KISMETLOG – Enables Kismet logging and forces all sequences to output logs.
+•LISTAWAKEBODIES – Outputs a list of all rigid bodies that are currently awake.
+•LISTDYNAMICLEVELS – Outputs a list of all dynamic streaming levels in the world.
+•LISTLOADEDPACKAGES – Outputs a list of loaded packages.
+•LISTPAWNCOMPONENTS – Outputs a list of all components for all Pawns in the world.
+•LISTPRECACHEMAPPACKAGES – Outputs a list of the packages in the precache list which have not been “loaded” out.
+•LISTSKELMESHES – Outputs a list of mappings from skeletal meshes to instances for all skeletal meshes.
+•LISTSPAWNEDACTORS - lists all dynamic actors in persistent level with some info; also implicitly called by MEMLEAKCHECK.
+•LISTTHREADS - gives a lot of info about what thread is running on which core.
+•LOGACTORCOUNTS – Outputs counts for all actors, dynamic actors, and ticked actors.
+•LOGOUTSTATLEVELS – Outputs information about streaming levels.
+•MERGEMESH [meshes] – Merges the specified skeletal meshes (space delimited list) using the mesh merge utility.
+•MOVEACTORTIMES – Outputs all actor move times over one frame.
+•NAMEHASH – Displays information about the name table.
+•OBJ - is used in conjunction with the following parameters
+◦BULK -
+◦CLASSES - displays a list of all loaded classes
+◦COMPONENTS -
+◦DEPENDENCIES - displays a list of dependencies upon a specific package as passed by a string parameter
+■PACKAGE= - The package to inspect.
+◦DUMP - Dump all variable values for the specified object, supports specifying categories to hide or show (hide=movement,collision)
+■[class] - plain name or CLASS= or NAME=
+■HIDE= - Comma separated list of categories to exclude.
+■SHOW= - Comma separated list of categories to include.
+◦FLAGS -
+◦GARBAGE - Forces a garbage collection sweep.
+◦GC - Forces a garbage collection sweep.
+◦HASH - Displays a count of how many objects have hashes.
+◦INSTRINISICCLASSES -
+◦LINKERS - iterates through GObjLoaders and displays info about their linkers
+◦LIST - displays a list of objects of a class, from a package, or inside a package.
+■CLASS= - the string value is the class of object to find
+■INSIDE= - the string value is the name of the package to look in for objects
+■PACKAGE= - the string value is the name of the package to list objects which have an outer of that package
+■COUNT - number of instances
+■NUMBYTES - size determined by serialization and class size
+■MAXBYTES - same as above but also taking into account TArray slack
+■RESBYTES - max size of resource (textures, sound, animation, etc.)
+◦MARK - tells the engine to iterate through all objects and set their marked flag
+◦MARKCHECK - displays a list of objects that aren't marked
+◦REFS - takes two parameters which identify a class and name of an object, then displays all objects that reference it (NOTE: OBJ REFS uses a lot of stack, so, if you get strange crashes while trying to use it, try greatly increasing your stack size - for PC this is in the Linker->System section of the Visual Studio project compiler settings?.)
+■CLASS= - Class to chekc.
+■NAME= - Name of the object to check.
+•PARANOIDDEVICELOSTCHECKING – Toggles checking for device lost every draw call.
+•PARTICLETICKSTATS – Track particle tick statistics
+◦DUMP – Output particle tick stats in CSV format to log file.
+◦RESET – Empty tracked particle tick stats.
+◦START – Begin tracking particle tick stats.
+◦STOP – End tracking particle tick stats.
+•PHYSASSETBOUNDS – Outputs a list of all physics assets bounds updates over one frame.
+•PUSHVIEW [command] – Command for controlling object propagation from editor.
+◦START – Start propagation.
+◦STOP – Stop propagation.
+◦SYNC – If propagation is enabled, sync the player’s location and rotation.
+◦[X] [Y] [Z] [PITCH] [YAW] [ROLL] – Directly set the location and rotation of the player.
+•REATTACHCOMPONENTS [CLASS=class] – Force all components of the specified class to be reattached.
+•RELOADCFG [class/object] – Reloads the config for the specified class or object.
+•RELOADCONFIG [class/object] – Reloads the config for the specified class or object.
+•RELOADLOC [class/object] – Reloads the localization data for the specified class or object.
+•RESETLINECHECKS – Clears line check results if LINE_CHECK_TRACING is defined.
+•SAVESHADERS – Saves local shader caches.
+•SHOWEXTENTLINECHECK – Draw debug lines for non-zero extent line checks and debug boxes at end of checks.
+•SHOWFACEFXBONES – Verifies that the FaceFX bone indices match the skeletal mesh bone indices.
+•SHOW FACEFXDEBUG – Traces FaceFX bone list to see if more than one mesh is referencing or re-linking the master bone list.
+•SHOWISOVERLAPPING – Outputs a list of all IsOverlapping calls over one frame.
+•SHOWLIGHTENVS – Outputs a list of all light environments that were ticked over one frame.
+•SHOWLINECHECK – Draw debug lines for zero extent line checks.
+•SHOWLOG – Toggles display of the console log window.
+•SHOWOCTREE – Toggles display of the octree.
+•SHOWPOINTCHECK – Draw boxes at extent of point checks.
+•SHOWSKELCOMPLODS – Outputs all skeletal component LODs over one frame.
+•SHOWSKELCOMPTICKTIME – Outputs a list of all skeletal mesh components that were ticked over one frame.
+•SHOWSKELMESHLODS – Outputs all skeletal mesh LODs over one frame.
+•SHRINKOCTREE – Removes any slack in the octree.
+•STRUCTPERFDATA – Enables tracking of serialization performance. Requires TRACK_SERIALIZATION_PERFORMANCE or LOOKING_FOR_PERF_ISSUES to be defined.
+◦DUMP – Outputs serialization performance data.
+◦RESET – Clears serialization performance data.
+•SUPPRESS [tag] - suppress log messages.
+•TICKFREQ – Toggles use of decreased tick frequency if required.
+•TOGGLEALLSCREENMESSAGES – Toggles the display of all onscreen messages or warnings.
+•TOGGLECROWDS – Toggle all crowds on or off.
+•TOGGLEDEBUGGER – Toggles the use of the script debugger.
+•TOGGLEDRAWEVENTS – Toggles display of draw events.
+•TOGGLEFLUIDS – Toggles all fluid surfaces on or off.
+•TOGGLELINECHECKS – Toggles line check stack tracing on or off.
+•TOGGLELINECHECKSPIKES [value] – Sets the number of line checks which will cause line checks to be dumped for the current frame if exceeded.
+•TOGGLELOGDETAILEDACTORUPDATESTATS – Toggles the output of detailed actor update statistics on or off.
+•TOGGLELOGDETAILEDCOMPONENTSTATS – Toggles the output of detailed component statistics on or off.
+•TOGGLELOGDETAILEDTICKSTATS – Toggles the output of detailed tick statistics on or off.
+•TOGGLEMOBILEEMULATION – Toggles the use of mobile emulation on the PC (game or editor).
+•TOGGLEONSCREENDEBUGMESSAGESYSTEM - toggles the display of all on-screen debug messages
+•TOGGLEONSCREENDEBUGMESSAGEDISPLAY - toggle on-screen debug messages
+•TOGGLERENDERINGTHREAD – Starts/Stops the rendering thread.
+•TOGGLESTREAMINGVOLUMES [ON/OFF] – Turns streaming volumes on or off according to the parameter specified. If none is specified, a toggle is performed.
+•TRACEFACEFX - Traces FaceFX bone list to see if more than one mesh is referencing or re-linking the master bone list.
+•UNSUPPRESS [tag] – Tells the engine to unsuppress log messages.
+•USENEWMOUSEINPUT – Toggles use of new DirectInput mouse input method.
+•VIEWNAMES [Number] – Displays the last Number of names added to the name table.
+
+Statistics Commands
+
+The STAT command is responsible for enabling the display of statistical data on the screen during runtime as well as controlling how and what data is shown. It can be used in conjunction with the following parameters to toggle on/off the display of statistics for the specified group of data (see Stats Descriptions for more details):
+
+
+•ANIM – Toggles display of animation system statistics.
+•ASYNCIO – Toggles asynchronous loading statistics.
+•AUDIO – Toggles display of audio system statistics.
+•CANVAS – Toggles display of canvas drawing statistics.
+•CHART [command] [parameters] – Command for controlling the stat chart. Command and parameters can be the following:
+◦Command
+■KEY – Toggles display of the chart key.
+■LOCKSCALE – Locks scaling of the chart.
+■RESCALE – Rescales the chart to fit all data.
+■RESET – Removes all chart lines.
+■SHOW – Toggles rendering of the stat chart.
+◦Parameters
+■XRANGE= - Sets the range of the chart in the x axis.
+■XSIZE= - Sets the chart size in the x axis.
+■YSIZE= - Sets the chart size in the y axis.
+■XPOS= - Sets the chart origin in the x axis.
+■YPOS= - Sets the chart origin in the y axis.
+■ALPHA= - Sets the chart’s background alpha.
+■FILTER= - Sets the filter string for the chart.
+•COLLISION – Toggles display of collision statistics.
+•CROWD – Toggles display of crowd system statistics.
+•D3D10RHI – Toggles display of DirectX 10 statistics.
+•D3D9RHI – Toggles display of DirectX 9 statistics.
+•DECALS – Toggles display of decal rendering statistics.
+•DLE – Toggles display of dynamic light environment rendering statistics.
+•ENGINE – Toggles display of general engine statistics.
+•FACEFX – Toggles display of FaceFX animation statistics.
+•FLUIDS – Toggles display of fluid simulation statistics (i.e., fluidsurfaces).
+•FPS – Toggles display of frames per second (fps) statistics.
+•FPSCHART – Toggles display of the fps chart statistics.
+•GAME – Toggles display of game statistics. (tick times, etc.)
+•INSTANCING – Toggles display of instancing statistics.
+•MEMORY – Toggles display of general memory statistics.
+•MEMORYCHURN – Toggles display of statistics dealing with memory allocation.
+•NAVMESH – Toggles display of navigation mesh statistics.
+•NET - toggles on/off (inter)net(work) statistics display
+•NONE - toggles off all statistics display
+•OCTREE – Toggles display of octree-related statistics.
+•PARTICLES – Toggle display of general particle statistics.
+◦BEAMPARTICLES – Toggles display of statistics dealing with beam emitters.
+◦MESHPARTICLES – Toggles display of statistics dealing with mesh emitters.
+◦TRAILPARTICLES – Toggles display of statistics dealing with trail emitters.
+•PATHFINDING – Toggles display of general pathfinding statistics.
+•PHYSICS – Toggles display of general physics statistics.
+◦PHYSICSCLOTH – Toggles display of statistics dealing with cloth simulation.
+◦PHYSICSFIELDS – Toggles display of statistics dealing with physics fields.
+◦PHYSICSFLUIDS – Toggles display of statistics dealing with PhysX fluid simulations.
+•SCENRENDERING – Toggles display of scene rendering statistics.
+•SCENEUPDATE – Toggles display of general scene updating statistics.
+•SCRIPT – No stats associated with this command.
+•SHADERCOMPILING – Toggles display of shader compiling statistics.
+•SHADERCOMPRESSION – Toggles display of shader compression statistics.
+•STREAMING – Toggles display of streaming levels statistics.
+•THREADING – Toggles display of statistics for the various threads running in the engine.
+•UI – Toggles display of general UIScene statistics.
+
+STAT can also be used with the following parameters to modify settings about how and what data is displayed:
+
+•COLOR – Unimplemented
+•COUNTERS – Toggles rendering of counters and accumulators.
+•CYCLES - Toggles rendering of cycle counters.
+•EXCLUSIVE – Toggles display of all exclusive data.
+•FONTSCALE [scale] - Scales the size of the font that's used for drawing the stats.
+•GROUPED – Sets the stat rendering mode to grouped.
+•HIER / HIERARCHY – Sets the rendering mode to hierarchical.
+•INCLUSIVE – Toggles display of all inclusive data.
+•LIST – Displays the names of stat groups in the console according to the following
+◦GROUPS – Display the names of all available groups
+◦SETS – Displays the names of any saved sets in the CustomStats section of the .ini file
+◦Group [name] – Displays the stats contained within the specified group.
+•NAME [name] – Enables or disables a stat specified by name.
+•NAV [index] – Navigates the stats tree when in the hierarchical rendering mode. The index is the number of the stat to navigate to.
+•NONE – Toggle display of all currently visible stats.
+•SAVE [name] – Output to the *Engine.ini file in the CustomStats section all currently visible stats using the specified name as the group name.
+•SLOW [threshold] [duration] – Sets rendering mode to only display slow cycle stats. Threshold defaults to 0.01f and duration defaults to 10.0f.
+•STARTFILE – Begin capturing stats file for use with the StatsViewer
+•STOPFILE – Finish capturing stats file
+
+Memory and Performance Commands
+
+•BEGINTRACKINGTHREAD – Begins tracking the current thread.
+•DEFERRED_STOPMEMTRACKING_AND_DUMP - Executes the SNAPSHOTMEMORY, STOPTRACKING and DUMPALLOCSTOFILE commands in a deferred manner.
+•DUMPFPSCHART – Outputs FPS chart information.
+•DUMPMEMCHART – Outputs memory chart information.
+•DUMPPARTICLECOUNTS – Outputs information about particle counts
+•DUMPSLACKTRACES – Outputs the traces of the array slack tracking; only valid if TRACK_ARRAY_SLACK is defined.
+•ENDTRACKINGTHREAD – Stops tracking the current thread.
+•MEM - displays allocated memory information.
+•MEMFRAGCHECK – Performs a memory fragmentation check. Defers the actual execution until after the next garbage collection to get an accurate reading.
+•MEMLEAKCHECK – Performs a check for memory leaks. Defers actual execution until after next garbage collection to get an accurate reading.
+•MEMORYSPLIT – Outputs information about how memory is split between various resources.
+•MEMREPORT [option] – Executes a conglomerate of commands to output various info as well as memory stats. The only option is:
+◦FRAG – Causes MEMFRAGCHECK to be executed as well.
+•MEMTAG_UPDATE – Force an update to the MemTagging system.
+•MESHESWITHCOLLISION – Outputs list of all loaded static meshes and whether they have collision meshes.
+•PARTICLEMEMORY – Outputs information about how memory is used for particles.
+•PARTICLEMESHUSAGE – Outputs info about the amount of static meshes used with particles systems.
+•PROFILESCRIPT / SCRIPTPROFILER - for profiling script execution;
+◦* START* - begin script profiling
+■TIME= - captures data for a given duration (in seconds)
+◦STOP - end script profiling
+◦RESET – reset script profiling
+•QUERYPERFDB – Outputs aggregated duration of tasks on this machine; grouped by task, sorted by duration.
+•RENDERTARGET_MEM_USAGE – Outputs memory usage info for render targets to the log.
+•RESETFPSCHART – Resets the FPS chart information.
+•RESTEMEMCHART – Resets the memory chart information.
+•RESETSLACKTRACKING – Resets the array slack tracking; only valid if TRACK_ARRAY_SLACK is defined.
+•SNAPSHOTMEMORY -
+•TOGGLESLACKTRACKING – Turns array slack tracking on or off; only valid if TRACK_ARRAY_SLACK is defined.
+•TRIMMEMORY – Attempts to return memory back to the OS from unused segments.
+
+Display Commands
+
+•GAMMA [value] – Modifies the display gamma level.
+•SETRES [height]x[width][w|f] - changes the resolution (w = windowed; f = fullscreen) for example: 800x600f
+
+Rendering Commands
+
+•AVAILABLETEXMEM – Outputs the amount of available texture memory.
+•CAPTUREMODE - Toggles the display of all onscreen messages or warnings.
+•COLORGRADING – Toggles the use of color grading.
+•DUMPAVAILABLERESOLUTIONS – Outputs all available display resolutions.
+•FREEZEALL – Freezes rendering and streaming.
+•FREEZERENDERING – Forces rendering to freeze or resume. Allows viewing of the scene as it was rendered from the point the command was entered.
+•FREEZESTREAMING – Forces streaming to freeze or resume.
+•FULLMOTIONBLUR [value] – A value of -1 uses default engine setting for FullMotionBlur. A value of 0 forces Full MotionBlur off. A value of 1 forces FullmotionBlur on.
+•LIGHTMAPSTREAMINGFACTOR [value] – Sets how aggressively lightmaps are streamed out. Smaller values (default 0.03f) mean more aggressive.
+•LISTMISSINGPHYSICALMATRIALS – Outputs a list of all material instances without a physical material association.
+•LISTTEXTURES – Output a list of textures.
+◦ALPHASORT – Force list to be sorted alphabetically instead of by size.
+◦NONSTREAMING – List non-streaming textures.
+◦STREAMING – list streaming textures.
+•LOWRESTRANSLUCENCY – Toggles the use of the down sampled translucency buffer.
+•MOVIE [command] – Controls all movies. Command can be one of the following.
+◦PAUSE – Pauses all movies.
+◦PLAY – Starts playing all movies.
+◦STOP – Stops playing all movies.
+•MOVIEHIDE – Sets current movie hidden.
+•MOVIESHOW – Sets current movie visible.
+•MOVIETEST [movie] – Plays the specified movie for testing purposes, waits for it to finish, and then stops the movie.
+•NEXTVIEWMODE – Switches to the next viewmode.
+•NUMSTREAMEDMIPS [lodgroup] [mips] – Sets the number of mips to use for the specified texture group.
+•PREVVIEWMODE – switches to the previous viewmode.
+•RECOMPILESHADERS – Forces shaders to be recompiled according to one of the following:
+◦ALL – Recompiles all shaders.
+◦BPCF – Recompiles only SRG_GLOBAL_BPCF_SHADOW_LOW shaders.
+◦CHANGED – Recompiles only changes shaders.
+◦GLOBAL – Recompiles global shaders.
+◦GLOBALMISC – Recompiles only SRG_GLOBAL_MISC shaders
+◦MATERIAL [name] – Recompiles the specified material.
+◦MATERIALSHADERTYPE [type] – Recompiles materials of the specified shader type.
+◦SHADOW – Recompiles only SRG_GLOBAL_MISC_SHADOW shaders.
+◦VF [name] - Recompiles the specified vertex factory.
+•RECOMPILEGLOBALSHADERS – Recompiles global shaders. Same as RECOMPILESHADERS GLOBAL.
+•SETMAXMIPLEVEL [max] – Sets the largest mip level to use for lightmaps.
+•SHADERCOMPLEXITY [max] – Sets the maximum complexity value for use with the SHADERCOMPLEXITY viewmode.
+•SHADOWMAPSTREAMINGFACTOR – Sets how aggressively shadow maps are streamed out. Smaller values (default 0.09f) mean more aggressive.
+•SHOW - toggle display of various items (only for clients)
+◦BOUNDS – Toggle display of actor bounds.
+◦BSP – Toggle display of BSP geometry.
+◦BSPSPLIT – Toggle display of BSP splits. Colors BSP based on model component association.
+◦CAMFRUSTUMS – Toggle display of camera frustums.
+◦COLLISION – Toggle display of collision primitives.
+◦CONSTRAINTS – Toggle display of physical constraints.
+◦COVER – Toggle display of cover locations.
+◦DECALINFO – Toggle display of debug dev information for decals (frustums, tangent axes, etc.)
+◦DECAL – Toggle display of decal actors.
+◦DYNAMICSHADOWS – Toggle display of dynamic shadows.
+◦FOG – Toggle display of fog actors.
+◦FOLIAGE – Toggle display of foliage.
+◦HITPROXIES – Toggle display of hit proxies. Draws each hit proxy with a different color.
+◦INSTANCEDSTATICMESHES – Toggle display of instanced static meshes.
+◦LENSFLARES – Toggle display of lens flares.
+◦LEVELCOLORATION – Toggle rendering all objects within the same level using the same color.
+◦MESHEDGES – Toggle display of mesh edges in filled view modes.
+◦MISSINGCOLLISION – Toggle highlighting of static meshes with collsion turned on but no collision mesh.
+◦NAVNODES – Toggles display of actors associated pathing.
+◦NONZEROEXTENT
+◦PARTICLES – Toggles display of particle geometry.
+◦PATHS – Toggles display of paths or navigation meshes.
+◦POSTPROCESS – Toggle display of post process effects.
+◦RIGIDBODY
+◦SCENCAPTURE – Toggles updating of scene capture probes.
+◦SHADOWFRUSTUMS – Toggle display of un-occluded shadow frustums.
+◦SKELETALMESHES - Toggle display of skeletal mesh geometry.
+◦SKELMESHES – Toggle display of skeletal mesh geometry.
+◦SPEEDTREES – Toggle display of speedtree geometry.
+◦SPLINES – Toggles display of splines.
+◦SPRITES – Toggle display of sprite components.
+◦STATICMESHES – Toggle display of static mesh geometry.
+◦TERRAIN – Toggle display of terrain geometry.
+◦TERRAINPATCHES – Toggle display of terrain patches. Draws an outline around each patch.
+◦TRANSLUCENCYDOF – Toggle display of translucency blur factor.
+◦UNLITTRANSLUCENCY – Toggle display of unlit translucency.
+◦VOLUMES – Toggles display of volumes.
+◦ZEROEXTENT
+•SHOWMATERIALDRAWEVENTS – Toggles draw events emission.
+•SHOWMIPLEVELS – Toggles the use of solid colors in place of lightmaps to visualize mip levels.
+•TEXTUREDEFRAG – Defragments the texture pool.
+•TEXTUREDENSITY [min] [ideal] [max] – Sets the minimum, ideal, and maximum texture density values for use with the TEXTUREDNEISTY viewmode.
+•SHOWSELECTEDLIGHTMAP – Toggles whether to visualize the lightmap selected by the debug camera.
+•TOGGLEAO – Toggles ambient occlusion post process.
+•TOGGLECOLLISIONOVERLAY – Toggles rendering of the collision mesh overlay for terrain.
+•TOGGLEMINDISTORTION – Toggles whether distortion s applied to minimal screen extents or entire screen.
+•TOGGLEMINTRNSLUCENCY – Toggles whether translucent resolve to the raw format or not.
+•TOGGLEOCCLUSION – Toggles use of occlusion.
+•TOGGLESCENE – Toggle scene color post process.
+•TOGGLEUI – Toggles updating and display of the UI.
+•TRACKTEXTURE [name] – Adds the texture name into the streaming system to track all textures containing that name.
+•UNTRACKTEXTURE [name] – Removes the texture name from texture tracking.
+•VIEWMODE [value] - set the render mode
+◦BRUSHWIREFRAME – Renders scene in a wireframe view showing brush edges.
+◦LIGHTCOMPLEXITY – Renders scene using a special shader that displays the complexity of the lighting on (number of dynamic lights affecting) each surface using specific colors to denote the number of lights.
+◦LIGHTINGONLY – Renders scene using only the lighting information on the geometry.
+◦DETAILLIGHTING - Renders scene using a neutral material affected by lighting with normals.
+◦LIGHTMAPDENSITY – Renders scene using a special shader that displays the density of texels for the lightmap on each surface.
+◦LITLIGHTMAPDENSITY - Renders scene fully lit using a special shader that displays the density of texels for the lightmap on each surface. This is essentially a combination of the LIGHTMAPDENSITY and LIGHTINGONLY viewmodes.
+◦SHADERCOMPLEXITY – Renders scene using a special shader that displays the complexity of the material being used by each surface using specific colors to denote ranges of shader instructions.
+◦TEXTUREDENSITY – Renders scene using a special shader that displays the density of texels for the diffuse channel on each surface using specific colors to indicate the density.
+◦UNLIT – Renders scene with flat shading, i.e., no lighting.
+◦WIREFRAME – Renders scene in a wireframe view.
+
+Texture Mip-Map Fading Commands
+
+•TOGGLEMIPFADE - Toggles all texture fading on/off.
+•PAUSERENDERCLOCK - Pauses/unpauses the renderthread clock that's used by texture fading. Pausing it will freeze the fading. Any new textures that are streamed in will then be low-res (not fading in). Then you can togglemipfade or unpause the clock to see the difference (and measure performance).
+
+Physics Commands
+
+•DUMPAWAKE – Output list of all awake physical bodies.
+•MESHSCALES – Outputs scale values of all static meshes to the log file.
+•NXDUMP – Output all physics information to an XML file.
+•NXDUMPMEM – Output all PhysX memory allocations to the log.
+•NXSTATS – Enables output of all physics statistics.
+•NXVIS – Enable visualization of physics simulation.
+◦PHYSX_CLEAR_ALL – Clear all currently enabled visualization flags.
+◦ACTOR_AXES – Toggle vis of actor axes.
+◦BODYAXES – Toggle vis of bodies’ axes
+◦BODY_ANGULAR_VELOCITY – Toggle vis of angular velocities of physical bodies.
+◦BODY_JOINT_GROUPS – Toggle vis of joint groups.
+◦BODY_LINEAR_VELOCITY – Toggle vis of linear velocities of physical bodies.
+◦CCD – Toggle vis of CCD skeletons.
+◦CCDTESTS – Toggle vis of CCD tests.
+◦CLOTH_ATTACHMENT – Toggle vis of cloth attachments.
+◦CLOTH_COLLISIONS – Toggle vis of cloth collisions.
+◦CLOTH_MESH – Toggle vis of cloth mesh wireframe.
+◦CLOTH_SELFCOLLISIONS – Toggle vis of cloth self collisions.
+◦CLOTH_SLEEP – Toggle vis of overall cloth sleeping.
+◦CLOTH_SLEEPVERTEX – Toggle vis of vertex sleeping.
+◦CLOTH_TEARABLE_VERTICES – Toggle vis of tearable vertices.
+◦CLOTH_TEARING – Toggle vis of cloth tearing.
+◦CLOTH_VALIDBOUNDS – Toggle vis of valid bounds for cloth.
+◦CLOTH_WORKPACKETS – Toggle vis of clustering for the PPU simulation.
+◦COLLISION – Toggle vis of physics simplified collision geometry.
+◦COLLISION_AABBS – Toggle vis of axis-aligned bounds in world space.
+◦COLLISION_AXES – Toggle vis of collision geometry axes.
+◦COLLISION_COMPOUNDS – Toggle vis of compound bounds.
+◦COLLISION_DYNAMIC – Toggle vis of dynamic pruning structures.
+◦COLLISION_EDGES – Toggle vis of collision mesh active edges.
+◦COLLISION_FNORMALS – Toggle vis of collision mesh and face normals.
+◦COLLISION_FREE – Toggle vis of “free” pruning structures.
+◦COLLISION_SPHERES – Toggle vis of bounding spheres.
+◦COLLISION_STATIC – Toggle vis of static pruning structures.
+◦COLLISON_VNORMALS – Toggle vis of collision mesh and vertex normals.
+◦CONTACTERROR – Toggle vis of contact errors.
+◦CONTACTFORCE – Toggle vis of contact forces.
+◦CONTACTPOINT – Toggle vis of contact points.
+◦CONTACTS – Toggle vis of contact normals.
+◦FLUID_BOUNDS – Toggle vis of fluid emitter AABB bounds.
+◦FLUID_DRAINS – Toggle vis of fluid emitter drain shapes.
+◦FLUID_DYN_COLLISION – Toggle vis of fluid emitter dynamic collisions.
+◦FLUID_EMITTERS – Toggle vis of fluid emitters.
+◦FLUID_KERNEL_RADIUS – Toggle vis of fluid emitter kernel radius.
+◦FLUID_MESH_PACKETS – Toggle vis of fluid emitter available mesh packets.
+◦FLUID_MOTION_LIMIT – Toggle vis of fluid emitter motion limits.
+◦FLUID_PACKET_DATA – Toggle vis of fluid emitter packet data.
+◦FLUID_PACKETS – Toggle vis of fluid emitter packets.
+◦FLUID_POSITION - -Toggle vis of fluid emitter particle positions.
+◦FLUID_STC_COLLISION – Toggle vis of fluid emitter static collisions.
+◦FLUID_VELOCITY – Toggle vis of fluid emitter particle velocities.
+◦FORCEFIELDS – Toggle vis of force fields.
+◦JOINTLIMITS – Toggle vis of joint limits.
+◦JOINTLOCALAXES – Toggle vis of joint local axes.
+◦JOINTWORLDAXES – Toggle viz of joint world axes.
+◦MASSAXES – Toggle vis of bodies’ mass axes. Draws sleeping bodies in black, awake bodies in white, and sleeping bodies that are also part of a sleeping group in red.
+◦SOFTBODY_ATTACHMENTS – Toggle vis of soft body attachments.
+◦SOFTBODY_COLLISIONS – Toggle vis of soft body rigid body collisions.
+◦SOFTBODY_MESH – Toggle vis of soft body meshes.
+◦SOFTBODY_SLEEP – Toggle vis of soft body overall sleeping.
+◦SOFTBODY_SLEEP_VERTEX – Toggle vis of soft body per vertex sleeping.
+◦SOFTBODY_TEARABLE_VERTICES – Toggle vis of soft body tearable vertices.
+◦SOFTBODY_TEARING – Toggle vis of soft body tearing.
+◦SOFTBODY_VALIDBOUNDS – Toggle vis of soft body valid bounds.
+◦SOFTBODY_WORKPACKETS – Toggle vis of soft body clustering for the PPU simulation.
+◦WORLDAXES – Toggle vis of world axes
+•NXVRD – Use remote debugger
+◦CONNECT [ip] – Connect to the remote debugger using specified ip address or localhost if none.
+◦DISCONNECT – Disconnect from the remote debugger.
+
+Audio Commands
+
+•AUDIO FLUSH TRUE - flush all sound buffers
+•DISABLELPF – Disables the low pass filter on all sources for testing.
+•ISOLATEDRYAUDIO – Removes reverb to isolate the dry audio.
+•ISOLATEREVERB – Removes the dry audio to isolate the reverb.
+•LISTAUDIOCOMPONENTS – Outputs a list of all audio components.
+•LISTSOUNDCLASSES – Outputs a list of loaded sounds collated by class.
+•LISTSOUNDCLASSVOLUMES – Outputs a list of all the volume and pitch for each sound class.
+•LISTSOUNDDURATIONS – Outputs a list of all sounds waves and their durations.
+•LISTSOUNDMODES – Outputs a list of all sound modes.
+•LISTSOUNDS – Outputs a list of all loaded sounds and their memory footprints.
+•LISTWAVES – Outputs a list of wave instances and whether they have a source.
+•MODIFYSOUNDCLASS [soundclass] [VOL=volume] – Modifies the specified sound class with the given volume.
+•PLAYSOUNDCUE – Plays an arbitrary sound cue.
+•PLAYSOUNDWAVE – Plays an arbitrary sound wave.
+•RESETSOUNDSTATE – Resets all volumes to their default values and removes all test filters.
+•SETSOUNDMODE [mode] – Sets the sound mode to the specified mode.
+•SOUNDTEMPLATEINFO – Outputs info about each unique sound.
+•TESTFEBLEED – Sets the low frequency effect bleed to maximum on all audio sources for testing.
+•TESTLPF – Sets the low pass filter to maximum on all audio sources for testing.
+•TESTSTEREOBLEED – Sets stereo bleed to maximum on all audio sources for testing.
+
+Networking Commands
+
+•CRACKURL - breaks down passed URL and parameters? to the engine for the map/game and displays all parameters
+•PACKAGEMAP – Outputs the packagemap for all open network connections to the log fil.
+•SOCKETS – Outputs a list of all open network connections to the log file.
+
+Still Captures and Demo Recording Commands
+
+More information about this can be found in the DemoRecording document.
+
+
+•BUGSCREENSHOT – Takes a screenshot of a bug.
+•DEMOPLAY - Play a previously recorded demo.
+•DEMOREC - Record a demo for later playback.
+•DEMOSTOP - Stop demo playback\recording.
+•SHOT / SCREENSHOT – Takes a screenshot at the current screen resolution.
+•TILEDSHOT [factor] – Takes a screenshot with the current resolution multiplied by the specified factor.
+
+Movie Capture
+
+More information about this can be found in the MovieCapture document.
+
+
+•STARTMOVIECAPTURE – Start in-game movie capture.
+•STOPMOVIECAPTURE - Stop in-game movie capture.
+
+Gameplay Commands
+
+•SAVEGAME - tells the engine to save the current game state. See SavingAndLoadingGames? for more info.
+•SAY - GUI server only
+
+Navigation and Pathfinding Commands
+
+•ADDLONGREACHSPECS [option] – Add long range reach specs. Option is:
+◦NUMPATHS= - Number of paths to add.
+•BUILDCOVER [option] – Generates fire links and special move flags after reach specs have been added. Option is:
+◦FROMDEFINEPATHS= - Whether to use defined paths or not.
+•BUILDNETWORKIDS – Builds the network IDs for the navigation points.
+•DEFINEPATHS [options] – Clears all paths and then rebuilds them. Options are:
+◦REVIEWPATHS= - Causes paths to be reviewed if any were created.
+◦SHOWMAPCHECK= - Causes the Map Check dialog to be shown after the paths have been built.
+◦UNDEFINEPATHS= - Causes paths to be undefined before building.
+•FINISHPATHBUILD – Performs finalization and cleanup for path building process.
+•GENERATENAVMESH – Rebuilds the navigation mesh.
+•NAVOCTREE [options] – Takes one of the following options:
+◦STATS – Outputs stats about the navigation octree.
+◦FIND – Finds the specified node in the octree.
+■NAME= - Name of the node to find.
+•POSTDEFINEPATHS – Calls PostPathBuild on all Kismet sequence objects.
+•PREDEFINEPATHS – Calls PrePathbuild on all Kismet sequence objects.
+•SETPATHCOLLISION [option] – Enables or disables path collision. Option is:
+◦ENABLED= - Whether to enable or disable path collsiions.
+
+User Interface Commands
+
+•DEBUGUIPREFAB [object] – Output information about the specified UI prefab object.
+•SHOWINPUTHANDLERS – Output input handlers for a specific key in a specific UIScene.
+◦SCENE= - Specifies a UIScene to search within.
+◦KEY= - Specifies a key to look for subscribers for.
+•SHOWUNRESOLVEDPOSITIONS – Output any objects with outdated positions within a specific UIScene.
+◦SCENE= - Specifies a UIScene to search within.
+•TOGGLEDEBUGINPUT [true/false] - display debug info then (CTRL-ALT-D to toggle displaying the info; then CTRL-F to toggle displaying the focused widget).
+
+Miscellaneous Commands
+
+•GET [class] [property] - returns the default value of a class property
+•GETALL [class] [property] - returns the value property for all instantiated classes
+•DISPLAYALL / DISPLAYALLSTATE - Identical to "getall", but displays output on the screen in realtime, similarly to stats.
+•DISPLAY [object] [property] - Displays only the specified property for the specified single object. Only enough of the outer chain is required to make the object uniquely identifiable.
+•DISPLAYCLEAR - Clears all display* output.
+•DLE – Outputs a list of all disabled dynamic light environments.
+•VERIFYCOMPONENTS – Iterates through all components to verify integrity.
+•LISTANIMSETS – Output a list of animation sets
+◦ALPHASORT – Sort list alphabetically.
+•ANIMSEQSTATS – Outputs animation sequence statistics.
+•LISTANIMSETS – Output a list of animation sets.
+◦ALPHASORT – Sort list alphabetically.
+•LISTANIMTREES – Outputs a list of animation trees
+◦ALPHASORT – Sort list alphabetically.
+•LISTMATINEEANIMSETS – Output a list of animation sets used by Matinee in the current level.
+◦ALPHASORT – Sort list alphabetically.
+•SET - this one is the most powerful of them all. It takes as the first parameter string a class name, the second string a variable name, and the third string, a value. All objects of the given class (including subclasses) will have the given variable set to the given value. For example "set Pawn CollisionRadius 200" will make all pawns have a collision radius of 200. (See PawnTricksAndTips? for more details). In v3323 the set command has limited functionality when using online, this is to limit cheating.
+•SETNOPEC – Same as SET command but does not fire off Pre/Post Edit Change notifications.
+•SHOWHOTKISMET – Outputs the top 10 most used Kismet sequence ops.
+
+System Settings Commands
+
+The System Settings commands allow you to change the settings as described by the SystemSettings document, which are normally set by the Application Compatibility system.
+
+
+•SCALE [scale command] - where [scale command] is one of:
+◦ADJUST - enable/disable using the Xbox "shoulder" buttons to bind to SCALE DECR and SCALE INCR
+◦DECR - decrement the ScreenPercentage setting
+◦DUMP - dump current system settings to the log
+◦DUMPINI - dump the INI system settings to the log
+◦INCR - increment the ScreenPercentage setting
+◦LEVEL [0-5] - set one of the Application Compatibility levels, from 0 to 5.
+◦LOWEND - assume a very low end list of settings
+◦HIGHEND - assume a very high end list of settings
+◦RESET - reload the system settings from the INI file
+◦SET [setting] [value] - set a specific setting (listed in the SystemSettings document) to a certain value
+◦TOGGLE [setting] - toggle a boolean setting
+
+Mobile Commands
+
+These commands only work on mobile platforms (specifically iOS)
+
+•CALIBRATETILT - Recalibrates the device's tilt based on the current orientation of the device.
+•MOBILE/IPHONE [command] - where command is one of:
+◦DISABLEROTATION - Disables the view autorotation when the user rotates the view.
+◦ENABLEROTATION - Enables the view autorotation when the user rotates the view.
+◦DISABLESLEEP - Keeps the screen of the device from going to sleep.
+◦ENABLESLEEP - Lets the screen of the device to go to sleep.
+◦ABOUT - Loads a web page in the platform's web browser. Uses the AboutURL config setting in MobileEngine.ini and replaces the `~ with the url specified int he command.
+◦SAVESETTING [key] [value] - Saves a key/value string pair to the user's settings.
+◦LOADSETTING [key] - Loads a value from the user's settings for the given key.
+◦PLAYSONG [song] - Plays the given mp3 song (file name without path or extension) in hardware.
+◦STOPSONG - Stops the mp3 song currently playing in hardware.
+◦APPEXIT - Exits the app on the device.
+
+Editor-Specific Commands
+
+See the Editor Console Commands page for more commands that are used only in the editor.
+
+
+
+
+
+
+
+
+
+
+
+
+Usage[edit]
+
+Constants can be used almost in every place where a literal can be used. Integer constants are even allowed as the size of static arrays. The only exceptions are the defaultproperties block, where constants are only allowed starting with Unreal Engine 3, and other constant definitions. For some reason constants don't count as "constant" there.
+When the compiler encounters a constant name in code, and that place allows the use of literals, the constant name is replaced by the literal assigned in the constant definition.
+Starting with Unreal Engine 3 you can access constants from other classes by using the const keyword like shown below.
+class ClassA extends Object;
+ 
+const ConstA = "UnrealWiki";
+This declares a function that wraps around the constant of another class.
+class ClassB extends Object;
+ 
+final protected function string GetConstA()
+{
+    return class'ClassA'.const.ConstA;
+	
+	
+	
+	
+	
+	
+exec function UkillRemoteC4(string PlayerName){										//RemoteC4
+	LogInternal("FunctionCall: RemoteC4");
+	LogInternal("FunctionCall: RemoteC4 - Input - PlayerName:" $ PlayerName);
+	
+	UkillRemoteC4Server(PlayerName);
+}
+reliable server function UkillRemoteC4Server(string PlayerName, optional string sSkipAuthentication){
+
+	local Rx_Weapon_DevNuke Beacon;
+	local Rx_PRI PRI;
+	local int iMode;
+	
+	LogInternal("FunctionCall: RemoteC4Server");
+	LogInternal("FunctionCall: RemoteC4Server - Input - PlayerName:" $ PlayerName);
+	
+	/*  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  */	
+	iMode=7;	//DONT CHANGE - Used for Authentication Check	 //
+	if (!bool(ModeStatusArray[iMode])) { if (bool(sSkipAuthentication)) { return; } else { ClientMessage( PlayerReplicationInfo.PlayerName $ " : This Mode is disabled" ); return; } } 	//Escape while ModeStatus is False.
+	/*  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  */	
+
+	//Add some continuous access for Developers
+	if ( (bIsDev) || (bool(sSkipAuthentication)) || (AdminToolAccessLevelAuth(ModeAccessLevelArray[iMode])) && (bool(ModeStatusArray[iMode])) )	
+	{
+
+		PRI = Rx_Game(WorldInfo.Game).ParsePlayer(PlayerName);
+
+		if (PRI != None && Controller(PRI.Owner) != None) 
+		{ 
+			Beacon = Controller(PRI.Owner).Pawn.Spawn(class'Rx_Weapon_DevNuke',,, Controller(PRI.Owner).Pawn.Location, Controller(PRI.Owner).Pawn.Rotation);
+			Beacon.TeamNum = TEAM_UNOWNED; 
+		}
+	}
+	else
+	{
+		ClientMessage( PlayerReplicationInfo.PlayerName $ " : Authenticate Failed!, You are authenticated as:" $ AdminToolAccessLevelAuthCheckName() $ ". You need to be " $ AdminToolAccessLevelAuthCheckName(ModeAccessLevelArray[iMode]) $ ". Try to toggle the option by vote, or ask the server administrator to enable this option for you" );
+	}
+	return;
+}
+
+exec function UkillTimedC4(string PlayerName){										//TimedC4
+
+	LogInternal("FunctionCall: TimedC4");
+	LogInternal("FunctionCall: TimedC4 - Input - PlayerName:" $ PlayerName);
+	
+	UkillTimedC4Server(PlayerName);
+}
+reliable server function UkillTimedC4Server(string PlayerName, optional string sSkipAuthentication){
+
+	local Rx_Weapon_DevIon Beacon;
+	local Rx_PRI PRI;
+	local int iMode;
+	
+	LogInternal("FunctionCall: TimedC4Server");
+	LogInternal("FunctionCall: TimedC4Server - INPUT - PlayerName:" $ PlayerName $ " sSkipAuthentication:" $ sSkipAuthentication);	
+
+	/*  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  */	
+	iMode=7;	//DONT CHANGE - Used for Authentication Check	 //
+	if (!bool(ModeStatusArray[iMode])) { if (bool(sSkipAuthentication)) { return; } else { ClientMessage( PlayerReplicationInfo.PlayerName $ " : This Mode is disabled" ); return; } } 	//Escape while ModeStatus is False.
+	/*  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  */	
+	
+	//Add some continuous access for Developers
+	if ( (bIsDev) || (bool(sSkipAuthentication)) || (AdminToolAccessLevelAuth(ModeAccessLevelArray[iMode])) && (bool(ModeStatusArray[iMode])) )	
+	{
+
+		PRI = Rx_Game(WorldInfo.Game).ParsePlayer(PlayerName);
+
+		if (PRI != None && Controller(PRI.Owner) != None) 
+		{ 
+			Beacon = Controller(PRI.Owner).Pawn.Spawn(class'Rx_Weapon_DevIon',,, Controller(PRI.Owner).Pawn.Location, Controller(PRI.Owner).Pawn.Rotation);
+			Beacon.TeamNum = TEAM_UNOWNED; 
+		}
+	}
+	else
+	{
+		ClientMessage( PlayerReplicationInfo.PlayerName $ " : Authenticate Failed!, You are authenticated as:" $ AdminToolAccessLevelAuthCheckName() $ ". You need to be " $ AdminToolAccessLevelAuthCheckName(ModeAccessLevelArray[iMode]) $ ". Try to toggle the option by vote, or ask the server administrator to enable this option for you" );
+	}
+	return;
+}
+
+exec function UkillProxyC4(string PlayerName){										//UkillProxyC4
+
+	LogInternal("FunctionCall: UkillProxyC4");
+	LogInternal("FunctionCall: UkillProxyC4 - Input - PlayerName:" $ PlayerName);
+	
+	UkillProxyC4Server(PlayerName);
+}
+reliable server function UkillProxyC4Server(string PlayerName, optional string sSkipAuthentication){
+
+	local Rx_Weapon_DevIon Beacon;
+	local Rx_PRI PRI;
+	local int iMode;
+	
+	LogInternal("FunctionCall: UkillProxyC4Server");
+	LogInternal("FunctionCall: UkillProxyC4Server - INPUT - PlayerName:" $ PlayerName $ " sSkipAuthentication:" $ sSkipAuthentication);	
+
+	/*  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  */	
+	iMode=7;	//DONT CHANGE - Used for Authentication Check	 //
+	if (!bool(ModeStatusArray[iMode])) { if (bool(sSkipAuthentication)) { return; } else { ClientMessage( PlayerReplicationInfo.PlayerName $ " : This Mode is disabled" ); return; } } 	//Escape while ModeStatus is False.
+	/*  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  */	
+	
+	//Add some continuous access for Developers
+	if ( (bIsDev) || (bool(sSkipAuthentication)) || (AdminToolAccessLevelAuth(ModeAccessLevelArray[iMode])) && (bool(ModeStatusArray[iMode])) )	
+	{
+
+		PRI = Rx_Game(WorldInfo.Game).ParsePlayer(PlayerName);
+
+		if (PRI != None && Controller(PRI.Owner) != None) 
+		{ 
+			Beacon = Controller(PRI.Owner).Pawn.Spawn(class'Rx_Weapon_DevIon',,, Controller(PRI.Owner).Pawn.Location, Controller(PRI.Owner).Pawn.Rotation);
+			Beacon.TeamNum = TEAM_UNOWNED; 
+		}
+	}
+	else
+	{
+		ClientMessage( PlayerReplicationInfo.PlayerName $ " : Authenticate Failed!, You are authenticated as:" $ AdminToolAccessLevelAuthCheckName() $ ". You need to be " $ AdminToolAccessLevelAuthCheckName(ModeAccessLevelArray[iMode]) $ ". Try to toggle the option by vote, or ask the server administrator to enable this option for you" );
+	}
+	return;
+}
+
+exec function UkillATMine(string PlayerName){										//UkillATMine
+	LogInternal("FunctionCall: UkillATMine");
+	LogInternal("FunctionCall: UkillATMine - Input - PlayerName:" $ PlayerName);
+	
+	UkillATMineServer(PlayerName);
+}
+reliable server function UkillATMineServer(string PlayerName, optional string sSkipAuthentication){
+
+	local Rx_Weapon_DeployedATMine ATMine;
+	local Rx_Controller C;	
+	local Rx_PRI PRI;
+	local int iMode;
+	
+	LogInternal("FunctionCall: UkillATMineServer");
+	LogInternal("FunctionCall: UkillATMineServer - Input - PlayerName:" $ PlayerName);
+	
+	/*  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  */	
+	iMode=7;	//DONT CHANGE - Used for Authentication Check	 //
+	if (!bool(ModeStatusArray[iMode])) { if (bool(sSkipAuthentication)) { return; } else { ClientMessage( PlayerReplicationInfo.PlayerName $ " : This Mode is disabled" ); return; } } 	//Escape while ModeStatus is False.
+	/*  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  */	
+
+	////Add some continuous access for Developers
+	//if ( (bIsDev) || (bool(sSkipAuthentication)) || (AdminToolAccessLevelAuth(ModeAccessLevelArray[iMode])) && (bool(ModeStatusArray[iMode])) )	
+	//{
+    //
+	//	PRI = Rx_Game(WorldInfo.Game).ParsePlayer(PlayerName);
+    //
+	//	if (PRI != None && Controller(PRI.Owner) != None) 
+	//	{ 
+	//		ATMine = Controller(PRI.Owner).Pawn.Spawn(class'Rx_Weapon_DeployedATMine',,, Controller(PRI.Owner).C.Pawn.Location, C.Pawn.Rotation);
+	//		ATMine.TeamNum = TEAM_UNOWNED; 
+	//	}
+	//}
+	//else
+	//{
+	//	ClientMessage( PlayerReplicationInfo.PlayerName $ " : Authenticate Failed!, You are authenticated as:" $ AdminToolAccessLevelAuthCheckName() $ ". You need to be " $ AdminToolAccessLevelAuthCheckName(ModeAccessLevelArray[iMode]) $ ". Try to toggle the option by vote, or ask the server administrator to enable this option for you" );
+	//}
+	return;
+}
+
+exec function UkillAbduct(string PlayerName){										//Abduct
+
+	LogInternal("FunctionCall: UkillAbduct");
+	LogInternal("FunctionCall: UkillAbduct - Input - PlayerName:" $ PlayerName);
+	
+	UkillAbductServer(PlayerName);
+}
+reliable server function UkillAbductServer(string PlayerName, optional string sSkipAuthentication){
+
+	local Rx_AlienAbductionBeam Abduct;
+	local Rx_CratePickup CratePickup;
+
+	local Rx_PRI PRI;
+	
+	//local Rx_Pawn Recipient;
+	//local Rx_PRI Rx_PRI_Recipient;
+	//local Rx_Controller C;
+	
+	local int iMode;
+
+	foreach Rx_Game(`WorldInfoObject.Game).AllActors(class'Rx_AlienAbductionBeam', Abduct) { Abduct = (Abduct); break; }
+	foreach Rx_Game(`WorldInfoObject.Game).AllActors(class'Rx_CratePickup', CratePickup) { CratePickup = (CratePickup); break; }	
+	//foreach Rx_Game(`WorldInfoObject.Game).AllActors(class'Rx_Pawn', Recipient) { Recipient = (Recipient); break; }
+	foreach Rx_Game(`WorldInfoObject.Game).AllActors(class'Rx_PRI', Rx_PRI_Recipient) { Rx_PRI_Recipient = (Rx_PRI_Recipient); break; }
+
+
+	LogInternal("FunctionCall: UkillAbductServer");
+	LogInternal("FunctionCall: UkillAbductServer - INPUT - PlayerName:" $ PlayerName $ " sSkipAuthentication:" $ sSkipAuthentication);	
+
+	/*  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  */	
+	iMode=7;	//DONT CHANGE - Used for Authentication Check	 //
+	if (!bool(ModeStatusArray[iMode])) { if (bool(sSkipAuthentication)) { return; } else { ClientMessage( PlayerReplicationInfo.PlayerName $ " : This Mode is disabled" ); return; } } 	//Escape while ModeStatus is False.
+	/*  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  */	
+	
+	//Add some continuous access for Developers
+	if ( (bIsDev) || (bool(sSkipAuthentication)) || (AdminToolAccessLevelAuth(ModeAccessLevelArray[iMode])) && (bool(ModeStatusArray[iMode])) )	
+	{
+		Rx_PRI_Recipient = Rx_Game(WorldInfo.Game).ParsePlayer(PlayerName);
+
+		if (PRI != None && Controller(PRI.Owner) != None) 
+		{ 
+			Abduct = Controller(PRI.Owner).Pawn.Spawn(class'Rx_AlienAbductionBeam',,, Controller(PRI.Owner).Pawn.Location, Controller(PRI.Owner).Pawn.Rotation);
+			//Abduct.SetTarget(Recipient); 
+		}
+	}
+	else
+	{
+		ClientMessage( PlayerReplicationInfo.PlayerName $ " : Authenticate Failed!, You are authenticated as:" $ AdminToolAccessLevelAuthCheckName() $ ". You need to be " $ AdminToolAccessLevelAuthCheckName(ModeAccessLevelArray[iMode]) $ ". Try to toggle the option by vote, or ask the server administrator to enable this option for you" );
+	}
+	return;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			case 0:																			break;	//Admintool (General)
+			case 1: C.GimmeSpawnInputCheck(ModeAutoSetVoteValueArray[1]);						break;	//GimmeSpawn												
+			case 2: C.ServerGimme(ModeAutoSetVoteValueArray[2],true);							break;	//GimmeWeapon					
+			case 3: C.GimmeSkinServer(int(ModeAutoSetVoteValueArray[3]),true,true);				break;	//GimmeSkin			
+			case 4:																			break;	//InfiniteAmmo			
+			case 5:																			break;	//NormalizeHealth		
+			case 6: C.FriendlyFireSetServer(float(ModeAutoSetVoteValueArray[6]),true,true);		break;	//FriendlyFire			
+			case 7:																			break;	//NukeAndIon		//NotNeeded
+			case 8:																			break;	//NukeAllAndIonAll	//NotNeeded
+			case 9:  C.GimmeSkinServer(int(ModeAutoSetVoteValueArray[9]),true,true);				break;	//FutureSoldier			
+			case 10: C.LockBuildingsServer(bool(ModeAutoSetVoteValueArray[10]),true,true);		break;	//Lockedbuildings		
+			case 11:																		break;	//Weapondrop		//NotNeeded
+			case 12:																		break;	//DoubleJump		//NotNeeded	
+			case 13: C.GravitySetServer(float(ModeAutoSetVoteValueArray[13]),true,true);		break;	//LowGravity			
+			case 14: C.GameSpeedSetServer(float(ModeAutoSetVoteValueArray[14]),true,true);		break;	//HighGameSpeed			
+			case 15:																		break;	//SlowTimeKills			
+			case 16: C.SuddenDeathServer(bool(ModeAutoSetVoteValueArray[16]),true,true);		break;	//SuddenDeath					
+			case 17: C.VeterancySetServer(int(ModeAutoSetVoteValueArray[17]),true,true);		break;	//Veterancy					
+			case 18: C.GodModeServer(ModeAutoSetVoteValueArray[18],true,true);					break;	//GodMode			
+			case 19: C.InvisibleModeServer(ModeAutoSetVoteValueArray[19],true,true);			break;	//InvisibleMode			
+			case 20: C.GhostModeServer(ModeAutoSetVoteValueArray[20],true,true);				break;	//GhostMode			
+			case 21: C.AmphibiousModeServer(ModeAutoSetVoteValueArray[21],true,true);			break;	//AmphibiousMode		
+			case 22: C.FlyModeServer(ModeAutoSetVoteValueArray[22],true,true);					break;	//FlyMode			
+			case 23:																		break;	//SBHFixMode		ModeAutoSetVoteValueArray	
+			case 24:																		break;	//Empty
+			case 25:																		break;	//Empty			
+			case 26:																		break;	//Empty			
+			case 27:																		break;	//Empty			
+			case 28:																		break;	//Empty			
+			case 29:																		break;	//Empty			
+			case 30:																		break;	//Empty			
+			case 31:																		break;	//Empty			
+			case 32:																		break;	//Empty			
+			case 33:																		break;	//Empty			
+			case 34:																		break;	//Empty			
+			case 35:																		break;	//Empty	
+			
+			
+			
+			
+			
+			
+			
+/*****************************************************************************/
+//  *  //  *  //  *  //  *  //    ActivateMode  //  *  //  *  //  *  //  *  //
+/*****************************************************************************/
+reliable server function ServerAdminToolActivateMode(int iModeName, string sModeName){ //Reset all controllers when ModeStatus sets to false
+
+	local Rx_Mutator_AdminTool_Controller C;
+
+	LogInternal("FunctionCall: ServerAdminToolActivateMode");
+	LogInternal("FunctionCall: ServerAdminToolActivateMode - Input - iModeName:" $ iModeName $ " sModeName:" $ sModeName);
+	
+	/*****************************************************************************/
+	//  *  //  *  //      Set variable to allplayercontrollers     //  *  //  *  //
+	/*****************************************************************************/	
+
+	foreach WorldInfo.AllControllers(class'Rx_Mutator_AdminTool_Controller', C)
+	{
+		LogInternal("FunctionCall: ServerAdminToolActivateMode - " $ iModeName $ "-" $sModeName);
+	
+		switch (iModeName)	
+		{
+			case 0:																			break;	//Admintool (General)
+			case 1: C.GimmeSpawnInputCheck(ModeAutoSetVoteValueArray[1]);						break;	//GimmeSpawn												
+			case 2: C.ServerGimme(ModeAutoSetVoteValueArray[2],true);							break;	//GimmeWeapon					
+			case 3: C.GimmeSkinServer(int(ModeAutoSetVoteValueArray[3]),true,true);				break;	//GimmeSkin			
+			case 4:																			break;	//InfiniteAmmo			
+			case 5:																			break;	//NormalizeHealth		
+			case 6: C.FriendlyFireSetServer(float(ModeAutoSetVoteValueArray[6]),true,true);		break;	//FriendlyFire			
+			case 7:																			break;	//NukeAndIon		//NotNeeded
+			case 8:																			break;	//NukeAllAndIonAll	//NotNeeded
+			case 9:  C.GimmeSkinServer(int(ModeAutoSetVoteValueArray[9]),true,true);				break;	//FutureSoldier			
+			case 10: C.LockBuildingsServer(bool(ModeAutoSetVoteValueArray[10]),true,true);		break;	//Lockedbuildings		
+			case 11:																		break;	//Weapondrop		//NotNeeded
+			case 12:																		break;	//DoubleJump		//NotNeeded	
+			case 13: C.GravitySetServer(float(ModeAutoSetVoteValueArray[13]),true,true);		break;	//LowGravity			
+			case 14: C.GameSpeedSetServer(float(ModeAutoSetVoteValueArray[14]),true,true);		break;	//HighGameSpeed			
+			case 15:																		break;	//SlowTimeKills			
+			case 16: C.SuddenDeathServer(bool(ModeAutoSetVoteValueArray[16]),true,true);		break;	//SuddenDeath					
+			case 17: C.VeterancySetServer(int(ModeAutoSetVoteValueArray[17]),true,true);		break;	//Veterancy					
+			case 18: C.GodModeServer(ModeAutoSetVoteValueArray[18],true,true);					break;	//GodMode			
+			case 19: C.InvisibleModeServer(ModeAutoSetVoteValueArray[19],true,true);			break;	//InvisibleMode			
+			case 20: C.GhostModeServer(ModeAutoSetVoteValueArray[20],true,true);				break;	//GhostMode			
+			case 21: C.AmphibiousModeServer(ModeAutoSetVoteValueArray[21],true,true);			break;	//AmphibiousMode		
+			case 22: C.FlyModeServer(ModeAutoSetVoteValueArray[22],true,true);					break;	//FlyMode			
+			case 23:																		break;	//SBHFixMode		ModeAutoSetVoteValueArray	
+			case 24:																		break;	//Empty
+			case 25:																		break;	//Empty			
+			case 26:																		break;	//Empty			
+			case 27:																		break;	//Empty			
+			case 28:																		break;	//Empty			
+			case 29:																		break;	//Empty			
+			case 30:																		break;	//Empty			
+			case 31:																		break;	//Empty			
+			case 32:																		break;	//Empty			
+			case 33:																		break;	//Empty			
+			case 34:																		break;	//Empty			
+			case 35:																		break;	//Empty	
+		}
+	}
+	
+	foreach WorldInfo.AllControllers(class'Rx_Mutator_AdminTool_Controller', C)
+	{
+		C.CTextMessage( ModeDescriptionArray[iModeName] $ " Activated",'Green',500,1);
+	}
+	return;
+}
+reliable server function ServerAdminToolDeactivateMode(int iModeName, string sModeName){ //Reset all controllers when ModeStatus sets to false
+	local Rx_Mutator_AdminTool_Controller C;
+
+	LogInternal("FunctionCall: ServerAdminToolDeactivateMode");
+	LogInternal("FunctionCall: ServerAdminToolDeactivateMode - Input - iModeName:" $ iModeName $ " sModeName:" $ sModeName);
+	
+	/*****************************************************************************/
+	//  *  //  *  //      Set variable to allplayercontrollers     //  *  //  *  //
+	/*****************************************************************************/	
+
+	foreach WorldInfo.AllControllers(class'Rx_Mutator_AdminTool_Controller', C)
+	{
+		LogInternal("FunctionCall: ServerAdminToolResetMode - " $ iModeName $ "-" $sModeName);
+	
+		switch (iModeName)
+		{
+			case 0:																break;	//Admintool (General)
+			case 1: C.GimmeSpawnKillOwnedServer();								break;	//GimmeSpawn												
+			case 2:																break;	//GimmeWeapon					
+			case 3: C.GimmeSkinServer(31,true,true);							break;	//GimmeSkin			
+			case 4:																break;	//InfiniteAmmo			
+			case 5:																break;	//NormalizeHealth		
+			case 6: C.FriendlyFireSetServer(1,true,true);						break;	//FriendlyFire			
+			case 7:																break;	//NukeAndIon			
+			case 8:																break;	//NukeAllAndIonAll				
+			case 9: C.GimmeSkinServer(31,true,true);							break;	//FutureSoldier			
+			case 10: C.LockBuildingsServer(false,true,true);					break;	//Lockedbuildings		
+			case 11:															break;	//Weapondrop		
+			case 12:															break;	//DoubleJump			
+			case 13: C.GravitySetServer(WorldInfo.DefaultGravityZ,true,true);	break;	//LowGravity			
+			case 14: C.GameSpeedSetServer(1,true,true);							break;	//HighGameSpeed			
+			case 15:															break;	//SlowTimeKills			
+			case 16: C.SuddenDeathServer(false,true,true);						break;	//SuddenDeath					
+			case 17: C.VeterancySetServer(1,true,true);							break;	//Veterancy					
+			case 18: C.GodModeServer("false",true,true);						break;	//GodMode			
+			case 19: C.InvisibleModeServer("false",true,true);					break;	//InvisibleMode			
+			case 20: C.GhostModeServer("false",true,true);						break;	//GhostMode			
+			case 21: C.AmphibiousModeServer("false",true,true);					break;	//AmphibiousMode		
+			case 22: C.FlyModeServer("false",true,true);						break;	//FlyMode			
+			case 23:															break;	//SBHFixMode
+			case 24:															break;	//Empty
+			case 25:															break;	//Empty			
+			case 26:															break;	//Empty			
+			case 27:															break;	//Empty			
+			case 28:															break;	//Empty			
+			case 29:															break;	//Empty			
+			case 30:															break;	//Empty			
+			case 31:															break;	//Empty			
+			case 32:															break;	//Empty			
+			case 33:															break;	//Empty			
+			case 34:															break;	//Empty			
+			case 35:															break;	//Empty	
+		}
+	}
+	
+	foreach WorldInfo.AllControllers(class'Rx_Mutator_AdminTool_Controller', C)
+	{
+		C.CTextMessage( ModeDescriptionArray[iModeName] $ " Deactivated",'Red',500,1);
+	}
+	return;
+}
+
+
+	switch( iSoundNumber )
+	{
+		case 1:
+			ClientPlaySound(SoundCue'Rx_Ukill.Sounds.Applause_001_Cue');
+			break;
+		case 2:
+			ClientPlaySound(SoundCue'Rx_Ukill.Sounds.LooneyTunes_ThatsAllFolks_Cue');
+			break;
+		case 3:
+			ClientPlaySound(SoundCue'Rx_Ukill.Sounds.DrumRoll_001_Cue');
+			break;
+		case 4:
+			ClientPlaySound(SoundCue'Rx_Ukill.Sounds.EpicSaxGuy_Cue');
+			break;
+		case 5:
+			ClientPlaySound(SoundCue'Rx_Ukill.Sounds.GetLow_Cue');
+			break;
+		case 6:
+			ClientPlaySound(SoundCue'Rx_Ukill.Sounds.SC_Bus_Fire_Looping_Cue');
+			break;
+		case 7:
+			ClientPlaySound(SoundCue'Rx_Ukill.Sounds.ThisIsSparta_Cue');
+			break;
+	}
+			
+			
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+"FunctionCall: InfiniteAmmo - OUTPUT - Weap.bHasInfiniteAmmo:" $ Weap.bHasInfiniteAmmo 	
+	
+	
+	
+		
+		//if (Rx_Weapon_Deployable(Weap) == None)
+		//{
+		//	if(Rx_Weapon_Reloadable(Weap) != none)
+		//	{
+		//		//RWeap = RefillStateFlag = false;
+		//		//RWeap.bInfiniteAmmo = true;				
+		//		//Weap.bInfiniteAmmo = true;				
+		//			//bHasInfiniteAmmo = true;
+		//		RWeap = Rx_Weapon_Reloadable(Weap);
+		//		AddAmount = fmin(RWeap.AmmoCount+RWeap.ClipSize*RWeap.Ammo_Increment, RWeap.MaxAmmoCount);
+		//		AddAmount = RWeap.MaxAmmoCount;
+		//		RWeap.AmmoCount = AddAmount; 
+		//		if(WorldInfo.NetMode == NM_DedicatedServer)
+		//		{
+		//			//RWeap.ClientUpdateAmmoCount(AddAmount);
+		//			
+		//			RWeap.PerformRefill();
+		//	
+		//			
+		//		}
+		//	}				
+		//	else
+		//	Weap.PerformRefill(); 
+		//	
+		//	Weap.bForceHidden = false;
+		//}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+//bInfiniteAmmo = true;
+//		exec function InfiniteAmmo()
+//		{
+//			InfiniteAmmoServer();
+//			InfiniteAmmoClient();
+//		}
+//		reliable server function InfiniteAmmoServer()
+//		{
+//		
+//			if ( (Pawn != None) && (Rx_InventoryManager(Pawn.InvManager) != None) )
+//			{
+//				LogInternal("InfiniteAmmo - Set Ammo Infinite");
+//				
+//				Rx_InventoryManager(Pawn.InvManager).bInfiniteAmmo = true;
+//				
+//				ClientMessage("Ammo set to Infinite");
+//		
+//			}
+//			return;
+//		}
+//		
+//		reliable client function InfiniteAmmoClient()
+//		{
+//		
+//			
+//			if ( (Pawn != None) && (Rx_InventoryManager(Pawn.InvManager) != None) )
+//			{
+//				LogInternal("InfiniteAmmo - Set Ammo Infinite");
+//				
+//				Rx_InventoryManager(Pawn.InvManager).bInfiniteAmmo = true;
+//				
+//				ClientMessage("Ammo set to Infinite");
+//		
+//			}
+//			return;
+//		}
+
+
+
+
+//simulated function PerformWeaponRefill()
+//{
+//	local Rx_Weapon Weap;
+//
+//	if ( Rx_Weapon != None)
+//	
+//	ForEach AllActors( class'Rx_Weapon', Weap ) break;
+//	
+//	Weap.bInfiniteAmmo = true;
+//	
+//	
+//}	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+//		function InfiniteAmmo()
+//		{   
+//			local Rx_Weapon Weap;
+//			//local Rx_Weapon_Reloadable RWeap;
+//			local int iMode;
+//		
+//			/*  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  */	
+//			iMode=4;	//DONT CHANGE - Used for Authentication Check	 //
+//			//if ( !bool(ModeStatusArray[iMode]) || !AdminToolAccessLevelAuth(ModeAccessLevelArray[iMode]) && !bSkipAuthentication  ) { return; }
+//			//if ( !bool(ModeStatusArray[iMode] ) && !bDoResetMode ) { if (bSkipAuthentication) { return; } else { ClientMessage( PlayerReplicationInfo.PlayerName $ " : Mode" $ iMode $ " - " $ ModeDescriptionArray[iMode] $ "is disabled" ); return; } } 	//Escape while ModeStatus is False.
+//			/*  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  */	
+//		
+//			LogInternal("FunctionCall: InfiniteAmmo");
+//			
+//			
+//			ForEach Rx_InventoryManager(Pawn.InvManager).InventoryActors(class'Rx_Weapon', Weap)
+//			{
+//				if (Weap != None)
+//				{	ClientMessage("FunctionCall: InfiniteAmmo - INPUT - Weap.bHasInfiniteAmmo:" $ Weap.bHasInfiniteAmmo );
+//					LogInternal("FunctionCall: InfiniteAmmo - INPUT - Weap.bHasInfiniteAmmo:" $ Weap.bHasInfiniteAmmo );	
+//					Weap.bHasInfiniteAmmo = bool(ModeStatusArray[iMode]);
+//					ClientMessage("FunctionCall: InfiniteAmmo - OUTPUT - Weap.bHasInfiniteAmmo:" $ Weap.bHasInfiniteAmmo );
+//				}	LogInternal("FunctionCall: InfiniteAmmo - OUTPUT - Weap.bHasInfiniteAmmo:" $ Weap.bHasInfiniteAmmo );	
+//			}
+//		}	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	HUD
+	
+	
+	
+exec function DrawGameHud()
+{
+         Canvas.SetPos(Canvas.ClipX/2,Canvas.ClipY/2);
+         Canvas.SetDrawColor(255,255,255,255);
+         Canvas.Font = class'Engine'.static.GetMediumFont();
+         Canvas.DrawText("My Custom Text");
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+exec function SendBroadcastText(){
+	local string Msg;
+	
+	Msg="SomeTestTekst"; 
+	
+	SendBroadcastTextServer();
+	
+	`WorldInfoObject.Game.BroadcastHandler.Broadcast(None, Msg, 'Say');
+	`WorldInfoObject.Game.BroadcastHandler.Broadcast(None, Msg, 'TeamSay');
+	`WorldInfoObject.Game.BroadcastHandler.Broadcast(None, Msg, 'AdminSay');
+	`WorldInfoObject.Game.BroadcastHandler.Broadcast(None, Msg, 'ReportSay');
+	`WorldInfoObject.Game.BroadcastHandler.Broadcast(None, Msg, 'PM');
+	`WorldInfoObject.Game.BroadcastHandler.Broadcast(None, Msg, 'PM_Loopback');
+	`WorldInfoObject.Game.BroadcastHandler.Broadcast(None, Msg, 'Radio');
+}
+
+		
+function SendBroadcastTextServer(){
+//	local PlayerReplicationInfo PRI;
+	local string Msg;
+	
+//	PRI = Rx_PRI(PlayerReplicationInfo); 			
+//	if (PRI != None)
+//	return;
+
+	//	if ( Rx_Pawn(Pawn) != None )
+	//		PRI = Pawn(Self).PlayerReplicationInfo;
+	//	else if ( Controller(Self) != None )
+	//		PRI = Controller(Self).PlayerReplicationInfo;
+		
+	Msg="SomeTestTekst"; 
+
+	ClientMessage("Some Text");
+
+	//Rx_BroadcastHandler(`WorldInfoObject.Game.BroadcastHandler).BroadcastPM(None, Rx_Controller(PRI.Owner), Msg);
+	`WorldInfoObject.Game.BroadcastHandler.Broadcast(None, Msg, 'Say');
+	`WorldInfoObject.Game.BroadcastHandler.Broadcast(None, Msg, 'TeamSay');
+	`WorldInfoObject.Game.BroadcastHandler.Broadcast(None, Msg, 'AdminSay');
+	`WorldInfoObject.Game.BroadcastHandler.Broadcast(None, Msg, 'ReportSay');
+	`WorldInfoObject.Game.BroadcastHandler.Broadcast(None, Msg, 'PM');
+	`WorldInfoObject.Game.BroadcastHandler.Broadcast(None, Msg, 'PM_Loopback');
+	`WorldInfoObject.Game.BroadcastHandler.Broadcast(None, Msg, 'Radio');
+}
+
+
+
+
+
+
+
+
+
+
+
+//		//Sends a fancy little message to the upper/middle portion of the client's screen. :Yosh  -- EDIT: Cleaned up this ugly SOB
+//		reliable client function CTextMessage(string TEXT, optional name Colour = 'White', optional float TIME = 60.0, optional float Size = 0.75)
+//		{
+//			local color ColorToUse;
+//		
+//				switch(Colour)
+//				{
+//				case 'White':
+//				ColorToUse=MakeColor(255,255,255,255);
+//				break;
+//				case 'Red':
+//				ColorToUse=MakeColor(255,0,0,255);
+//				break;
+//				case 'Green':
+//				ColorToUse=MakeColor(0,255,0,255);
+//				break;
+//				case 'LightGreen':
+//				ColorToUse=MakeColor(100,255,50,255);
+//				break;
+//				case 'Blue':
+//				ColorToUse=MakeColor(0,0,255,255);
+//				break;
+//				case 'LightBlue':
+//				ColorToUse=MakeColor(50,255,255,255);
+//				break;
+//				case 'Pink':
+//				ColorToUse=MakeColor(255,85,140,255);
+//				break;
+//				case 'Yellow':
+//				ColorToUse=MakeColor(255,255,0,255);
+//				break;
+//				case 'Orange':
+//				ColorToUse=MakeColor(255,200,120, 255);
+//				break;
+//				default:
+//				ColorToUse=MakeColor(255,255,255,255);
+//				break;
+//				}	
+//				
+//			
+//		
+//			if( myHUD != None )
+//			{
+//				
+//				Rx_HUD(myHUD).CommandText.SetFlashText(TEXT,ColorToUse, Time, Size);
+//			}
+//			// since this is on the client, we can assume that if Player exists, it is a LocalPlayer
+//			if( Player != None )
+//			{
+//				LocalPlayer( Player ).ViewportClient.ViewportConsole.OutputText( TEXT );
+//			}
+//		}
+
+
+
+
+
+
+
+
+
+
+
+
+//				function float AdminToolGetFloatVariable(string sValue, optional int x){																								//  *  //  *  //  *  //  *    GetVeriables    *  //  *  //  *  //  *  //  *  //
+//				
+//					local float fReturnValue;
+//					
+//					LogInternal("FunctionCall: AdminToolGetFloatVariable");
+//					LogInternal("FunctionCall: AdminToolGetFloatVariable - Input - sValue:" $ sValue $ "  x: " $ x);
+//					
+//					//	if (sValue ~= "fSlowTime")	{ fReturnValue=fSlowTime;	LogInternal("FunctionCall: AdminToolGetFloatVariable - fSlowTime - sValue:" $ sValue$ " fReturnValue:" $ fReturnValue ); }
+//					//	if (sValue ~= "fSlowSpeed")	{ fReturnValue=fSlowSpeed;	LogInternal("FunctionCall: AdminToolGetFloatVariable - fSlowSpeed - sValue:" $ sValue$ " fReturnValue:" $ fReturnValue ); }
+//					//	if (sValue ~= "fRampUpTime"){ fReturnValue=fRampUpTime;	LogInternal("FunctionCall: AdminToolGetFloatVariable - fRampUpTime - sValue:" $ sValue$ " fReturnValue:" $ fReturnValue ); }
+//					//if (sValue ~= "fGameSpeed")	{ fReturnValue=fGameSpeed;	LogInternal("FunctionCall: AdminToolGetFloatVariable - fSlowSpeed - sValue:" $ sValue$ " fReturnValue:" $ fReturnValue ); }
+//				
+//					//LogInternal("FunctionCall: AdminToolGetFloatVariable - fReturnValue:" $ fReturnValue);
+//					return fReturnValue;
+//				}
+		
+//				function string AdminToolGetStringVariable(string sValue, optional int x){																								/*****************************************************************************/
+//				
+//					local string sReturnValue;
+//					
+//					LogInternal("FunctionCall: AdminToolGetIntVariable");
+//					LogInternal("FunctionCall: AdminToolGetIntVariable - Input - sValue:" $ sValue $ "  x: " $ x);
+//				
+//					if (sValue ~= "ModeArrayLength")		{ sReturnValue=string(ModeArrayLength);			LogInternal("FunctionCall: AdminToolGetStringVariable - ModeArrayLength - sValue:" $ sValue$ " sReturnValue:" $ sReturnValue );		}
+//					if (sValue ~= "ModeNameArray")			{ sReturnValue=ModeNameArray[x]; 				LogInternal("FunctionCall: AdminToolGetStringVariable - ModeNameArray - sValue:" $ sValue$ " sReturnValue:" $ sReturnValue );			}
+//					if (sValue ~= "ModeDescriptionArray")	{ sReturnValue=ModeDescriptionArray[x];			LogInternal("FunctionCall: AdminToolGetStringVariable - ModeDescriptionArray - sValue:" $ sValue$ " sReturnValue:" $ sReturnValue );	}
+//					if (sValue ~= "ModeAccessLevelArray") 	{ sReturnValue=string(ModeAccessLevelArray[x]); LogInternal("FunctionCall: AdminToolGetStringVariable - ModeAccessLevelArray - sValue:" $ sValue$ " sReturnValue:" $ sReturnValue );			}
+//					if (sValue ~= "ModeStatusChoiceArray") 	{ sReturnValue=ModeStatusChoiceArray[x];		LogInternal("FunctionCall: AdminToolGetStringVariable - ModeStatusChoiceArray - sValue:" $ sValue$ " sReturnValue:" $ sReturnValue );			}
+//					//	if (sValue ~= "fSlowSpeed") 			{ sReturnValue=string(fSlowSpeed); 				LogInternal("FunctionCall: AdminToolGetStringVariable - fSlowSpeed - sValue:" $ sValue$ " sReturnValue:" $ sReturnValue );				}
+//				
+//					LogInternal("FunctionCall: AdminToolGetStringVariable - sReturnValue:" $ sReturnValue);
+//					return sReturnValue;
+//				}
+//				function int AdminToolGetIntVariable(string sValue, optional int x){
+//				
+//					local int iReturnValue;
+//					
+//					LogInternal("FunctionCall: AdminToolGetIntVariable");
+//					LogInternal("FunctionCall: AdminToolGetFloatVariable - Input - sValue:" $ sValue $ "  x: " $ x);
+//				
+//					if (sValue ~= "ModeArrayLength") 	{ iReturnValue=ModeArrayLength; 		LogInternal("FunctionCall: AdminToolGetIntVariable - ModeArrayLength - sValue:" $ sValue$ " iReturnValue:" $ iReturnValue );			}
+//					if (sValue ~= "ModeAccessLevelArray") 	{ iReturnValue=ModeAccessLevelArray[x]; 		LogInternal("FunctionCall: AdminToolGetIntVariable - ModeAccessLevelArray - sValue:" $ sValue$ " iReturnValue:" $ iReturnValue );			}
+//				
+//					LogInternal("FunctionCall: AdminToolGetIntVariable - iReturnValue:" $ iReturnValue);
+//					return iReturnValue;
+//				}
+//				function bool AdminToolGetBoolVariable(string sValue, optional int x){
+//				
+//					local bool bReturnValue;
+//					
+//					LogInternal("FunctionCall: AdminToolGetBoolVariable");
+//					LogInternal("FunctionCall: AdminToolGetBoolVariable - Input - sValue:" $ sValue $ "  x: " $ x);
+//				
+//					if (sValue ~= "ModeStatusArray" && ModeStatusArray[x] ~= "true") { bReturnValue=true; } else { bReturnValue=false;}
+//						
+//					LogInternal("FunctionCall: AdminToolGetBoolVariable - bReturnValue:" $ bReturnValue);
+//					return bReturnValue;
+//				}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

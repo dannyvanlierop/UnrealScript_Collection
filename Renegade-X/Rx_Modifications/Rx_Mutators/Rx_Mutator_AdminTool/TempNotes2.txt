@@ -1,0 +1,79 @@
+simulated function Tick( float Delta )
+{
+  Super.Tick( Delta );
+ 
+  DoStuffOnServerOnly();
+  DoStuffOnBoth();
+}
+ 
+// Called from a simulated function, but not simulated itself,
+// the engine skips over this function on clients. (or rather,
+// the non-authority version, which is usually the client)
+function DoStuffOnServerOnly()
+{
+  DoStuffOnClient();
+}
+ 
+// A simulated function getting called from another simulated
+// function. This gets called on both machines.
+simulated function DoStuffOnBoth()
+{
+}
+ 
+// Oops! This is a simulated function, but gets called from a
+// non-simulated function, so although it COULD run on a client
+// (because it's simulated) the code that calls it doesn't run
+// on the client and so this won't ever get called.
+simulated function DoStuffOnClient()
+{
+}
+
+
+
+
+	
+//
+//	Initialize the maplist manager
+//	InitializeMapListManager();
+//
+//	if (WorldInfo.GetmapName() == "Field")
+//	{
+//		ModeStatusArray[0] = "false";
+//	}
+//	else 
+//	{
+//		ModeStatusArray[0] = "true";
+//	}
+//
+//	adding fort mutator (nBab)
+//
+
+
+
+
+
+
+
+
+
+
+
+
+//		simulated function InitMyAdminToolController(optional bool bIsActor){
+//		
+//			if (bIsActor) { foreach Rx_Game(`WorldInfoObject.Game).AllActors(class'Rx_Mutator_AdminTool_Controller', myAdminTool_Controller) break; }
+//			else { foreach class'WorldInfo'.static.GetWorldInfo().AllActors(class'Rx_Mutator_AdminTool_Controller', myAdminTool_Controller) break; }
+//		}
+//		simulated function InitAllAdminToolControllers(optional bool bIsActor){
+//		
+//			//if (bIsActor) { foreach WorldInfo.AllControllers(class'Rx_Mutator_AdminTool_Controller', allAdminTool_Controllers) break; }
+//			//else { foreach class'WorldInfo'.static.GetWorldInfo().AllControllers(class'Rx_Mutator_AdminTool_Controller', allAdminTool_Controllers) break; }
+//			foreach class'WorldInfo'.static.GetWorldInfo().AllControllers(class'Rx_Mutator_AdminTool_Controller', allAdminTool_Controllers) break;
+//		}
+
+//simulated function InitGameReplicationInfo(optional bool bIsActor)
+//{
+//if (bIsActor) { foreach Rx_Game(`WorldInfoObject.Game).AllActors(class'GameReplicationInfo', myGameReplicationInfo) break; }
+//	else { foreach class'WorldInfo'.static.GetWorldInfo().AllActors(class'GameReplicationInfo', myGameReplicationInfo) break; }
+//}
+////WorldInfo.GRI == None

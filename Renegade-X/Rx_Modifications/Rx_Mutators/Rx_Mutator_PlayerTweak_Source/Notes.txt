@@ -1,0 +1,7 @@
+This is the source code for the Player Tweak mutator tutorial found at:
+
+http://www.moddb.com/groups/31/unreal-tournament-3-developers/tutorials/24645/unreal-learning-2-ut3-configurable-mutators
+
+You should note that the package file contains slightly different UI Scenes from the tutorial; this is not overly important as  the scene is largely the same.
+
+There are two UIScenes in the package. The correct file is PlayerTweakConfigMenu; the other is an older scene that was used as a testbed during development and could not be removed due to UnrealEd referencing.

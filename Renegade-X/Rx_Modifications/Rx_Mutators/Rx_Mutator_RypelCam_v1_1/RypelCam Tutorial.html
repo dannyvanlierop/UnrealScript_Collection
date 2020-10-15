@@ -1,0 +1,392 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>RypelCam Tutorial</title>
+
+<script type="text/javascript"> <!--
+function ShowHide(id) {obj = document.getElementsByTagName("div"); if (obj[id].style.display == 'block'){obj[id].style.display = 'none';}else{obj[id].style.display = 'block';}} //--> </script>
+<style type="text/css"> <!--
+body{background-color:#121212;color:#CCC;font-family:sans-serif} a:link,a:active,a:visited{color:#B8B800;text-decoration:none}a:hover{color:#E6E600;text-decoration:underline} div.basetext{background-color:#333;text-align:left;font-weight:400;padding:11px;margin:11px 2%;border:thin solid #ddd} div.basetop{position:fixed;width:auto;height:auto;right:0;left:auto;top:0;background-color:#333;font-weight:400;text-align:right;padding:2px 11px;margin:0 2%;border:thin solid #ddd} ul{margin-top:1px;margin-bottom:1px;margin-left:0;padding-left:3%}li{list-style:outside;margin-top:10px;margin-bottom:10px}ul li{list-style:square;font-family:sans-serif;font-weight:400}
+--> </style></head><body><div class="basetop"><a href="http://renegade-x.com/forums/viewforum.php?f=138">Support &amp; Download (renegade-x.com/)</a></div>
+<div id="base" class="basetext">
+
+<p>Tutorial for RypelCam v1.1, 'Renegade X' Edition</p>
+
+<ul>
+<li>
+<a href="javascript:ShowHide('IntroductionDiv')">Introduction</a>
+<div id="IntroductionDiv" style="display: block;">
+
+	<ul>
+	<li>
+	<a href="javascript:ShowHide('WhatisRypelcamSubDiv')">What is RypelCam ?</a>
+	<div id="WhatisRypelcamSubDiv" style="display: block;">
+    The objective of RypelCam is to improve and enhance the playback of 
+Ren-X replays (a.k.a. 'demos'), while giving special attention to features for movie makers.
+    A virtual camera provides the opportunity to create stunning 
+cinematic sequences on its way along a user-constructed path. <br>RypelCam was first introduced in 2005 for Unreal Engine 1 by RypeL, who later became
+		the lead programmer on Ren-X. UE2 and UE3 versions were then developed aswell and were used in gametrailes and countless fraggmovies, especially for UT2004. VegasKill and RattleSN4K3 later contributed to the UE3 version aswell wich then got adapted and modified to become the Ren-X version, managed and maintained again by RypeL.
+	</div>
+	</li>
+
+	<li>
+	<a href="javascript:ShowHide('SupportSubDiv')">Where can i get support ?</a>
+	<div id="SupportSubDiv" style="display: block;">
+For any questions, bugreports, news and download of the latest version pls visit the modding section on the <a href="http://renegade-x.com/forums/viewforum.php?f=138">RenX Forums</a>.
+	</div>
+	</li>
+	</ul>
+
+</div> <!-- end IntroductionDiv-->
+</li>
+
+
+
+<li>
+<a href="javascript:ShowHide('InstallationDiv')">Installation</a>
+<div id="InstallationDiv" style="display: block;">
+	<ul>
+	<li>
+1.1 : <em>Renegade X/UDKGame/CookedPC</em> : copy <strong>RenX_RCam_StandAlone.u</strong> into this folder</li>
+	<li>
+1.2 : <em>Renegade X/UDKGame/Config/UDKGame.ini</em> :<br>
+<table style="font-size:14px;" align="center" border="0">
+  <tbody><tr><td align="right">Find:</td><td><pre>	DecalManagerClassPath=Engine.DecalManager</pre>	</td></tr>
+<tr><td align="right">Replace with:</td><td><pre>	DecalManagerClassPath=RenX_RCam_StandAlone.RCamDecalManager</pre></td></tr>
+</tbody></table>
+
+    
+    
+    </li>
+    <li>
+1.3 : RypelCam uses some keys on your keyboard by default, a keybind overview is included at the end of this tutorial. <br>
+Normally, userdefined keybinds are not active during demo playback, 
+therefore they will not conflict with RypelCam. You may remove keybinds 
+that interfere your work if they are executed in addition to the 
+RypelCam keybinds. It is for example reccomended to unbind the arrow 
+keys (input options in the Ren-X menu) to avoid camera shakes.
+	</li>
+    <li>
+1.4 : For the best recording performance,  the game frames per second 
+should be set equal to the recording frames per second: set the 
+'MaxSmoothedFrameRate' to the desired value and 'bSmoothFrameRate=True' 
+in the UTEngine.ini file.
+	</li>
+	</ul>
+
+</div> <!-- end InstallationDiv-->
+</li>
+
+
+
+<li>
+<a href="javascript:ShowHide('BasicsDiv')">Basics</a>
+<div id="BasicsDiv" style="display: none;">
+	<ul>
+	<li>
+2.1 : If you´ve done the steps in Chapter 1 correctly RypelCam should automatically load at demostart.<br>- Press Mouse1 to cycle through players (X+Mouse1 to cycle backwards)<br>- Press right control to toggle between first-/thirdperson.
+	</li>
+	<li>
+2.2 : Then you should get yourself familiar with the spectatorcam. To
+view it either hit the right mousebutton or the 'k' key. The difference 
+is that the right mousebutton will teleport the speccam to your current 
+location unlike the 'k' key, which will teleport you to the speccam 
+instead(and 'k' doesent work in some situations). Then you can fly 
+around with it using the 'w,a,s,d,space,c' keys. Note that 'spacebar' is
+ occupied by a keybind from Epic and unpauses the demo. In exchange, 
+'shift,leftalt' can be used to change the altitude while paused. You can
+ pause the demo with the 'DownArrow' key. 
+'1' to '9'  change the camera speed, the 'Numpad1/Numpad2' keys slow 
+down or accelerate the camera smoothly.
+	</li>
+    <li>
+2.3 : Basic Democontrols:
+You can change the demo speed with the 'LeftArrow' and 'RightArrow' keys
+ or the 'Mousescrollwheel'. Hitting the 'UpArrow' restores the normal 
+playback speed.
+While being in the 3rd person view, the 'L' key locks the 
+viewingdirection of the player your currently watching (only in 
+serverside demos).
+	</li>
+    <li>
+2.4 : If you want to make Camerapaths you first need to know what a 
+Campoint is. Campoints are RypelCam's "keypoints" that you place in the 
+map to define the way your Camera should take. The Cam will fly through 
+all the Campoints and will compute a smooth path between them. A 
+Campoint contains the coordinates for its location, the field of view 
+and rotation and finally the Campoint's creation time for fully 
+automatic camera drives. However, the 'timed paths' are optional and you
+ are free to control the camera speed manually. You can read more about 
+timing in chapter 4. 
+	</li>
+    <li>
+2.5 : To make a Campath you have to create at least 4 Campoints. To 
+create a Campoint fly with the speccam to a point in the map where you 
+want to set a Campoint and then hit 'Numpad5'.
+This already completes a basic Campath.
+	</li>
+    <li>
+2.6 : After you have placed at least 4 Campoints you can make the Cam 
+travel along the camera path by hitting the 'Numpad3' key. '1-9' and 
+'Numpad1/2' keys can be used to control its speed. You can switch the 
+cam path's visibility with the 'Numpad9' key. It will cycle through 3 
+different draw modes(everything invisible, everything visible, only 
+Campoints but not the path between them visible).
+You can create up to 120 Campoints and remove the final Campoint with 
+'Numpad4'.
+	</li>
+    <li>
+2.7 : It can happen that RypelCam doesent allow the creation of a new 
+Campoint, sending a warning message in the console. This happens when 
+you try to create a Campoint that is too close or too far away from the 
+previous Campoint. "Too close" or "too far away" mean that the widest 
+distance between 2 Campoints is greater than 15 times the shortest 
+distance between 2 Campoints in your path.
+	</li>
+	</ul>
+
+</div> <!-- end BasicsDiv-->
+</li>
+
+
+
+
+<li>
+<a href="javascript:ShowHide('SavingandloadingDiv')">Saving &amp; loading</a>
+<div id="SavingandloadingDiv" style="display: none;">
+	<ul>
+	<li>
+3.1 : You can save a Campath with 'F6'. And you can load a Campath with
+'F8'. Campaths are saved in a automatically created UTRypelCam.ini, which can only store 1
+Campath. If you want to store multiple Campaths or different versions of
+ your Campaths you can make copies of the UTRypelCam.ini. 
+	</li>
+	<li>
+3.2 : In the UTRypelCam.ini you can also see the saved values of a 
+Campath. If you think you know what youre doing and if you want to make 
+small adjustments you could do that right in the ini.
+	</li>
+	</ul>
+
+</div> <!-- end SavingandloadingDiv-->
+</li>
+
+
+
+
+<li>
+<a href="javascript:ShowHide('TimingDiv')">Controlling the speed of the camera when its traveling along the predefined path</a>
+<div id="TimingDiv" style="display: none;">
+	<ul>
+	<li>
+4.1 : To control the speed of the Cam is very important for good results. 
+You have two possibilities to control the Cams movement speed when its following a camerapath. Both have advantages and disadvantages.
+	</li>
+	<li>
+4.2 : Controlling the Speed manually:
+When you activate the Cam with 'Numpad3' it will automatically put you 
+in the Cam view and begins to travel along the path youve said with the pathnodes. The '1-9' and/or
+'Numpad1/Numpad2' keys can be used to change the Cam's speed manually.
+The advantage of this method is the full, manual control over the cams speed. But
+speed changes have to be done dynamically and quickly in order to keep 
+up with the gameplay sometimes.
+	</li>
+    <li>
+4.3 : Controlling the speed automatically based on the campoints/pathnodes game time:
+When you place a Campoint, its creation time is saved in order for the 
+Cam to adjust its speed on its own.
+In order to set up such a 'timed path', you not only have to take care 
+of "where"  but also "when" to place a Campoint.
+When the camera path is created, save it whith 'F6', reload the demo and
+ the path('F8'), than hit 'J' to activate the automatic timing mode.
+Then the demo should pause at the time you set the first Campoint. As 
+soon as you unpause('ArrowDown') the demo, the camera will start its 
+self-controlled path.
+
+Notice that setting multiple Campoints while the demo is paused will 
+break the timed path. If the Campoints are supposed to share the same 
+time(since the demo is paused), the automatic timing won't work.
+
+Sometimes it might happen that the Cam starts too soon or too late. In 
+this case, you can pause the demo and synchronize the camera with the 
+'Numpad+' and 'Numpad-' keys.
+	</li>
+	</ul>
+
+</div> <!-- end TimingDiv-->
+</li>
+
+
+
+<li>
+<a href="javascript:ShowHide('lockcamprojectileDiv')">Locking the camera view</a>
+<div id="lockcamprojectileDiv" style="display: none;">
+	<ul>
+	<li>
+5.1 : 'L' locks the third person view of players and vehicles (on by default). This view mode replicates the original player inputs and
+contains various enhancements for vehicle turrets, deployables etc.
+	</li>
+	<li>
+5.2 : 'Numpad 6' locks the camera view onto a projectile. Cycle through 
+the present projectiles with numpad 6. The spectating distance can be 
+adjusted with the 'W' or 'S' keys. The camera movement speed can be 
+changed with the '1-9' or 'numpad1/2' keys.
+	</li>
+	</ul>
+
+</div> <!-- end lockcamprojectileDiv-->
+</li>
+
+
+
+<li>
+<a href="javascript:ShowHide('deletingDiv')">Deleting cam points &amp; changing their positions</a>
+<div id="deletingDiv" style="display: none;">
+	<ul>
+	<li>
+6.1 : You can delete the last Campoint with 'Numpad4'. This way you also can delete the whole Campath or parts of it.
+	</li>
+	<li>
+6.2 : You can correct the position of a Campoint with the 'Z' key. 
+Firstly, select a Campoint with 'Numpad-/+', then switch back to the 
+speccam ('right mouse button'), go to a new location and hit the 'Z' 
+key. The Campoint's time for the 'timed path' mode will not be changed 
+by this.
+	</li>
+	</ul>
+
+</div> <!-- end deletingDiv-->
+</li>
+
+
+
+<li>
+<a href="javascript:ShowHide('FOVDiv')">Changing Roll and Field-of-View(FOV)</a>
+<div id="FOVDiv" style="display: none;">
+	<ul>
+	<li>
+7.1 : If you want to make your Cam a littlebit more unique and dynamic 
+you can assign different roll and field of view values for your 
+Campoints.
+	</li>
+	<li>
+7.2 : To do this, first select a Campoint with'Numpad-/+' and then you 
+can use 'Numpad7/8' to change roll or fov. "Roll" means making the Cam 
+lean left or right. By default 'Numpad7/8' will change roll. The 'O' key
+ will cause 'Numpad7/8' to change the fov instead.
+Note that "Roll" works only while paused at the moment, may be fixed in 
+an update. 
+	</li>
+	</ul>
+
+</div> <!-- end FOVDiv-->
+</li>
+
+
+
+<li>
+<a href="javascript:ShowHide('patheditDiv')">Path edit mode</a>
+<div id="patheditDiv" style="display: none;">
+	<ul>
+	<li>
+8.1 : RypelCam will compute a smooth cam path between Campoints. In some
+ situations you might want to change the way the Campoints are 
+connected. For example if you placed the Campoints close to a wall, the 
+resulting Campath might cut through the wall. 
+With Pathedit mode you can change the bending of the path between 
+selected cam points in order to turn sharper or softer. 
+	</li>
+	<li>
+8.2 : First you have to hit 'F3' to enable the Pathedit mode. Select a 
+Campoint with 'Numpad+' and 'Numpad-'. You can switch back to the free 
+camera to keep track of the changes in the path. Finally, change the 
+path with 'Numpad1' and 'Numpad2' 
+	</li>
+	</ul>
+
+</div> <!-- end patheditDiv-->
+</li>
+
+
+
+<li>
+<a href="javascript:ShowHide('KeysDiv')">Keybind Overview
+
+</a>
+<div id="KeysDiv" style="display: none;">
+	<ul>
+	<li>
+		Mouse1 - Cycle through players (X+Mouse1 to cycle backwards)
+	</li><li>
+		Right control key - toggle between first-/thirdperson Ren-X playerviews
+	</li><li>
+		F6 - Saves current Cam
+	</li><li>
+F8 - Loads a Campath from the RypelCam.ini
+	</li><li>
+F1 - Display help elements on the HUD.
+	</li><li>
+F3 - Goes into Pathedit Mode. See Chapter 8.    
+	</li><li>
+Numpad1/2 - Changes either Speccam speed or Camera speed. Or if you are 
+in Pathedit Mode this keys can change the shape of the Campath. See 2.2,
+ 4.2 and 8.
+	</li><li>
+Numpad-/+ - Selects a Campoint so that you can roll it, replace it, or to change the path next to it. See 6.2, 7 and 8.    
+	</li><li>
+Numpad5 - Creates a new Campoint. See chapter 2.
+	</li><li>
+Numpad3 - Puts you into Cam view and manually starts the Camera. See 2.6.    
+	</li><li>
+Numpad6 - Selects a Projectile(rockets etc.) as target. See chapter 5.    
+	</li><li>
+Numpad9 - Makes the Campath invisible. See 2.6.
+	</li><li>
+Numpad7/8 - Used to change roll/fov for Campoints. See Chapter 7.  
+	</li><li>
+O - The 'O' key(not the zero key) is used to switch between rollmode and fovmode. See chapter 7.
+	</li><li>
+1-9 - The Number keys on your keyboard can be used to change the speed 
+of either the speccam(when demo is paused) or your camera quickly. See 
+2.2.
+	</li><li>
+Numpad4 - Deletes the last Campoint. See 6.1.    
+	</li><li>
+Z - Assigns a Campoint a new location. See 6.2.
+	</li><li>
+K - Switches to Speccam from the current location. See 2.2.    
+	</li><li>
+RightMouseButton - Switches to Speccam without teleporting the Speccam to your current location. See 2.2.
+	</li><li>
+WASD,SPACE,C - used to move the speccam. See 2.2.
+	</li><li>
+WASD,SHIFT,LEFTALT - used to move the speccam in pause mode. See 2.2.    
+	</li><li>
+U - The Speccam will no longer collide with the world but travel through objects.    
+	</li><li>
+P - If the camera should stop when the demo is paused or continue to travel along the camera path. See Chapter 4.
+	</li><li>
+UpArrow - Sets Demospeed to normal. See 2.3.    
+	</li><li>
+DownArrow - Pauses the Demo. See 2.3.    
+	</li><li>
+LeftArrow - Slows the Demospeed down. See 2.3.
+	</li><li>
+RighArrow - Speeds the Demospeed up. See 2.3.    
+	</li><li>
+H - Switches HUD on/off.   
+	</li><li>
+M - shows RCam related additional info in the HUD.
+	</li><li>
+L - Locks third person view. See Chapter 5.    
+	</li><li>
+J - Enables Timed Path mode. See 4.3.    
+	</li><li>
+I - Deactivates weapondisplay in 1st person view.
+	</li><li>
+F2 - Activates experimental dumpframes command. This records bmp screenshots (they will take a lot of space).
+    </li>
+	</ul>
+
+</div> <!-- end KeysDiv-->
+</li>
+</ul>
+</div></body></html>

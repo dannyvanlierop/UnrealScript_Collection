@@ -1,0 +1,5 @@
+# Hide big files
+*.zip
+
+#END
+!.gitignore
